@@ -90,7 +90,11 @@
 /*!*********************************!*\
   !*** ./client/actions/index.js ***!
   \*********************************/
+<<<<<<< HEAD
 /*! exports provided: SHOW_ERROR, RECEIVE_POSTS, REQUEST_POSTS, SET_NAME, requestPosts, receivePosts, showError, fetchPosts, setName */
+=======
+/*! exports provided: SHOW_ERROR, RECEIVE_POSTS, REQUEST_POSTS, requestPosts, receivePosts, showError, fetchPosts */
+>>>>>>> 8b4ae9251ec024de7e1c4813e8f3f0a311404b07
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -98,19 +102,28 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SHOW_ERROR", function() { return SHOW_ERROR; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_POSTS", function() { return RECEIVE_POSTS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "REQUEST_POSTS", function() { return REQUEST_POSTS; });
+<<<<<<< HEAD
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SET_NAME", function() { return SET_NAME; });
+=======
+>>>>>>> 8b4ae9251ec024de7e1c4813e8f3f0a311404b07
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "requestPosts", function() { return requestPosts; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "receivePosts", function() { return receivePosts; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "showError", function() { return showError; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchPosts", function() { return fetchPosts; });
+<<<<<<< HEAD
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setName", function() { return setName; });
+=======
+>>>>>>> 8b4ae9251ec024de7e1c4813e8f3f0a311404b07
 /* harmony import */ var superagent__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! superagent */ "./node_modules/superagent/lib/client.js");
 /* harmony import */ var superagent__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(superagent__WEBPACK_IMPORTED_MODULE_0__);
 
 var SHOW_ERROR = 'SHOW_ERROR';
 var RECEIVE_POSTS = 'RECEIVE_POSTS';
 var REQUEST_POSTS = 'REQUEST_POSTS';
+<<<<<<< HEAD
 var SET_NAME = 'SET_NAME';
+=======
+>>>>>>> 8b4ae9251ec024de7e1c4813e8f3f0a311404b07
 var requestPosts = function requestPosts() {
   return {
     type: REQUEST_POSTS
@@ -140,12 +153,15 @@ function fetchPosts(subreddit) {
     });
   };
 }
+<<<<<<< HEAD
 var setName = function setName(name) {
   return {
     type: SET_NAME,
     name: name
   };
 };
+=======
+>>>>>>> 8b4ae9251ec024de7e1c4813e8f3f0a311404b07
 
 /***/ }),
 
@@ -160,24 +176,45 @@ var setName = function setName(name) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+<<<<<<< HEAD
 /* harmony import */ var _Login__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Login */ "./client/components/Login.jsx");
+=======
+/* harmony import */ var _ErrorMessage__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ErrorMessage */ "./client/components/ErrorMessage.jsx");
+/* harmony import */ var _LoadSubreddit__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./LoadSubreddit */ "./client/components/LoadSubreddit.jsx");
+/* harmony import */ var _SubredditList__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./SubredditList */ "./client/components/SubredditList.jsx");
+/* harmony import */ var _WaitIndicator__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./WaitIndicator */ "./client/components/WaitIndicator.jsx");
+
+
+
+>>>>>>> 8b4ae9251ec024de7e1c4813e8f3f0a311404b07
 
 
 
 var App = function App() {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "app"
+<<<<<<< HEAD
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Login__WEBPACK_IMPORTED_MODULE_1__["default"], null));
+=======
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ErrorMessage__WEBPACK_IMPORTED_MODULE_1__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_LoadSubreddit__WEBPACK_IMPORTED_MODULE_2__["default"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_WaitIndicator__WEBPACK_IMPORTED_MODULE_4__["default"], null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_SubredditList__WEBPACK_IMPORTED_MODULE_3__["default"], null));
+>>>>>>> 8b4ae9251ec024de7e1c4813e8f3f0a311404b07
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (App);
 
 /***/ }),
 
+<<<<<<< HEAD
 /***/ "./client/components/Login.jsx":
 /*!*************************************!*\
   !*** ./client/components/Login.jsx ***!
   \*************************************/
+=======
+/***/ "./client/components/ErrorMessage.jsx":
+/*!********************************************!*\
+  !*** ./client/components/ErrorMessage.jsx ***!
+  \********************************************/
+>>>>>>> 8b4ae9251ec024de7e1c4813e8f3f0a311404b07
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -186,6 +223,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+<<<<<<< HEAD
 /* harmony import */ var _actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../actions */ "./client/actions/index.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
@@ -268,6 +306,146 @@ function (_Component) {
 }(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])()(Login));
+=======
+
+
+
+var ErrorMessage = function ErrorMessage(props) {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "error"
+  }, props.errorMessage);
+};
+
+function mapStateToProps(state) {
+  return {
+    errorMessage: state.errorMessage
+  };
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(mapStateToProps)(ErrorMessage));
+
+/***/ }),
+
+/***/ "./client/components/LoadSubreddit.jsx":
+/*!*********************************************!*\
+  !*** ./client/components/LoadSubreddit.jsx ***!
+  \*********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../actions */ "./client/actions/index.js");
+
+
+
+
+var LoadSubreddit = function LoadSubreddit(_ref) {
+  var children = _ref.children,
+      dispatch = _ref.dispatch;
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    onClick: function onClick() {
+      return dispatch(Object(_actions__WEBPACK_IMPORTED_MODULE_2__["fetchPosts"])('newzealand'));
+    }
+  }, "Fetch Posts"), children);
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])()(LoadSubreddit));
+
+/***/ }),
+
+/***/ "./client/components/Post.jsx":
+/*!************************************!*\
+  !*** ./client/components/Post.jsx ***!
+  \************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var Post = function Post(_ref) {
+  var title = _ref.title;
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, title);
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Post);
+
+/***/ }),
+
+/***/ "./client/components/SubredditList.jsx":
+/*!*********************************************!*\
+  !*** ./client/components/SubredditList.jsx ***!
+  \*********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _Post__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Post */ "./client/components/Post.jsx");
+
+
+
+
+var Subreddit = function Subreddit(_ref) {
+  var subreddits = _ref.subreddits;
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, subreddits.map(function (post, i) {
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Post__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      key: i,
+      title: post.title
+    });
+  }));
+};
+
+var mapStateToProps = function mapStateToProps(state) {
+  return {
+    subreddits: state.subreddits
+  };
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(mapStateToProps)(Subreddit));
+
+/***/ }),
+
+/***/ "./client/components/WaitIndicator.jsx":
+/*!*********************************************!*\
+  !*** ./client/components/WaitIndicator.jsx ***!
+  \*********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+
+
+
+var WaitIndicator = function WaitIndicator(props) {
+  return props.waiting ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    className: "wait-indicator",
+    src: "/animated-circle.gif"
+  }) : null;
+};
+
+function mapStateToProps(state) {
+  return {
+    waiting: state.waiting
+  };
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(mapStateToProps)(WaitIndicator));
+>>>>>>> 8b4ae9251ec024de7e1c4813e8f3f0a311404b07
 
 /***/ }),
 
@@ -348,8 +526,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _error_message__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./error-message */ "./client/reducers/error-message.js");
 /* harmony import */ var _subreddits__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./subreddits */ "./client/reducers/subreddits.js");
 /* harmony import */ var _waiting__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./waiting */ "./client/reducers/waiting.js");
+<<<<<<< HEAD
 /* harmony import */ var _name__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./name */ "./client/reducers/name.js");
 
+=======
+>>>>>>> 8b4ae9251ec024de7e1c4813e8f3f0a311404b07
 
 
 
@@ -357,12 +538,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = (Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])({
   errorMessage: _error_message__WEBPACK_IMPORTED_MODULE_1__["default"],
   subreddits: _subreddits__WEBPACK_IMPORTED_MODULE_2__["default"],
+<<<<<<< HEAD
   waiting: _waiting__WEBPACK_IMPORTED_MODULE_3__["default"],
   name: _name__WEBPACK_IMPORTED_MODULE_4__["default"]
+=======
+  waiting: _waiting__WEBPACK_IMPORTED_MODULE_3__["default"]
+>>>>>>> 8b4ae9251ec024de7e1c4813e8f3f0a311404b07
 }));
 
 /***/ }),
 
+<<<<<<< HEAD
 /***/ "./client/reducers/name.js":
 /*!*********************************!*\
   !*** ./client/reducers/name.js ***!
@@ -393,6 +579,8 @@ var initialState = 'user undefined';
 
 /***/ }),
 
+=======
+>>>>>>> 8b4ae9251ec024de7e1c4813e8f3f0a311404b07
 /***/ "./client/reducers/subreddits.js":
 /*!***************************************!*\
   !*** ./client/reducers/subreddits.js ***!
