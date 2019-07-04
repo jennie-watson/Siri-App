@@ -3,6 +3,7 @@ import request from 'superagent'
 export const SHOW_ERROR = 'SHOW_ERROR'
 export const RECEIVE_POSTS = 'RECEIVE_POSTS'
 export const REQUEST_POSTS = 'REQUEST_POSTS'
+export const SET_NAME = 'SET_NAME'
 
 export const requestPosts = () => {
   return {
@@ -35,5 +36,12 @@ export function fetchPosts (subreddit) {
       .catch(err => {
         dispatch(showError(err.message))
       })
+  }
+}
+
+export const setName = (name) => {
+  return {
+    type: SET_NAME,
+    name
   }
 }
