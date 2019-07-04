@@ -19,7 +19,9 @@ class Login extends Component {
   }
   render () {
     return (
-      <div>
+      <div className = 'loginForm'>
+        <h1>Are you worthy of SIRI ???</h1>
+        <h2>Try Your Luck!</h2>
         <form onSubmit={this.handleSubmit}>
           <input type="text" placeholder="enter name" onChange={this.handleInput} value={this.state.name}/>
           <button type="submit">submit</button>
