@@ -160,15 +160,34 @@ var setName = function setName(name) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _Login__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Login */ "./client/components/Login.jsx");
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _Login__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Login */ "./client/components/Login.jsx");
 
 
 
-var App = function App() {
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Login__WEBPACK_IMPORTED_MODULE_1__["default"], null));
+
+var App = function App(_ref) {
+  var view = _ref.view;
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, displayView(view));
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (App);
+var displayView = function displayView(view) {
+  if (view === 'login') {
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Login__WEBPACK_IMPORTED_MODULE_2__["default"], null);
+  } else if (view === 'questions') {
+    return 'questions';
+  } else if (view === 'verdict') {
+    return 'verdict';
+  }
+};
+
+var mapStateToProps = function mapStateToProps(state) {
+  return {
+    view: state.view
+  };
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(mapStateToProps)(App));
 
 /***/ }),
 
@@ -349,6 +368,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _subreddits__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./subreddits */ "./client/reducers/subreddits.js");
 /* harmony import */ var _waiting__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./waiting */ "./client/reducers/waiting.js");
 /* harmony import */ var _name__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./name */ "./client/reducers/name.js");
+/* harmony import */ var _view__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./view */ "./client/reducers/view.js");
+
 
 
 
@@ -358,7 +379,8 @@ __webpack_require__.r(__webpack_exports__);
   errorMessage: _error_message__WEBPACK_IMPORTED_MODULE_1__["default"],
   subreddits: _subreddits__WEBPACK_IMPORTED_MODULE_2__["default"],
   waiting: _waiting__WEBPACK_IMPORTED_MODULE_3__["default"],
-  name: _name__WEBPACK_IMPORTED_MODULE_4__["default"]
+  name: _name__WEBPACK_IMPORTED_MODULE_4__["default"],
+  view: _view__WEBPACK_IMPORTED_MODULE_6__["default"]
 }));
 
 /***/ }),
@@ -419,6 +441,38 @@ function subreddits() {
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (subreddits);
+
+/***/ }),
+
+/***/ "./client/reducers/view.js":
+/*!*********************************!*\
+  !*** ./client/reducers/view.js ***!
+  \*********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+var initialState = 'questions';
+/* harmony default export */ __webpack_exports__["default"] = (function () {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
+
+  var _ref = arguments.length > 1 ? arguments[1] : undefined,
+      type = _ref.type,
+      action = _ref.action;
+
+  switch (type) {
+    case 'SET_VIEW':
+      return _objectSpread({}, state, action);
+
+    default:
+      return state;
+  }
+});
 
 /***/ }),
 
