@@ -90,7 +90,7 @@
 /*!*********************************!*\
   !*** ./client/actions/index.js ***!
   \*********************************/
-/*! exports provided: SHOW_ERROR, RECEIVE_POSTS, REQUEST_POSTS, SET_NAME, requestPosts, receivePosts, showError, fetchPosts, setName */
+/*! exports provided: SHOW_ERROR, RECEIVE_POSTS, REQUEST_POSTS, SET_NAME, SET_VIEW, requestPosts, receivePosts, showError, fetchPosts, setName, setView */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -99,11 +99,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_POSTS", function() { return RECEIVE_POSTS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "REQUEST_POSTS", function() { return REQUEST_POSTS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SET_NAME", function() { return SET_NAME; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SET_VIEW", function() { return SET_VIEW; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "requestPosts", function() { return requestPosts; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "receivePosts", function() { return receivePosts; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "showError", function() { return showError; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchPosts", function() { return fetchPosts; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setName", function() { return setName; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setView", function() { return setView; });
 /* harmony import */ var superagent__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! superagent */ "./node_modules/superagent/lib/client.js");
 /* harmony import */ var superagent__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(superagent__WEBPACK_IMPORTED_MODULE_0__);
 
@@ -111,6 +113,7 @@ var SHOW_ERROR = 'SHOW_ERROR';
 var RECEIVE_POSTS = 'RECEIVE_POSTS';
 var REQUEST_POSTS = 'REQUEST_POSTS';
 var SET_NAME = 'SET_NAME';
+var SET_VIEW = 'SET_VIEW';
 var requestPosts = function requestPosts() {
   return {
     type: REQUEST_POSTS
@@ -144,6 +147,12 @@ var setName = function setName(name) {
   return {
     type: SET_NAME,
     name: name
+  };
+};
+var setView = function setView(view) {
+  return {
+    type: SET_VIEW,
+    view: view
   };
 };
 
@@ -260,6 +269,8 @@ function (_Component) {
       e.preventDefault();
 
       _this.props.dispatch(Object(_actions__WEBPACK_IMPORTED_MODULE_2__["setName"])(_this.state.name));
+
+      _this.props.dispatch(Object(_actions__WEBPACK_IMPORTED_MODULE_2__["setView"])('questions'));
     });
 
     return _this;
@@ -453,21 +464,19 @@ function subreddits() {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
+/* harmony import */ var _actions_index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/index */ "./client/actions/index.js");
 
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-var initialState = 'questions';
+var initialState = 'login';
 /* harmony default export */ __webpack_exports__["default"] = (function () {
   var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
 
   var _ref = arguments.length > 1 ? arguments[1] : undefined,
       type = _ref.type,
-      action = _ref.action;
+      view = _ref.view;
 
   switch (type) {
-    case 'SET_VIEW':
-      return _objectSpread({}, state, action);
+    case _actions_index__WEBPACK_IMPORTED_MODULE_0__["SET_VIEW"]:
+      return view;
 
     default:
       return state;

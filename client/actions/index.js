@@ -4,6 +4,7 @@ export const SHOW_ERROR = 'SHOW_ERROR'
 export const RECEIVE_POSTS = 'RECEIVE_POSTS'
 export const REQUEST_POSTS = 'REQUEST_POSTS'
 export const SET_NAME = 'SET_NAME'
+export const SET_VIEW = 'SET_VIEW'
 
 export const requestPosts = () => {
   return {
@@ -43,5 +44,12 @@ export const setName = (name) => {
   return {
     type: SET_NAME,
     name
+  }
+}
+
+export const setView = (view) => {
+  return {
+    type: SET_VIEW,
+    view
   }
 }
