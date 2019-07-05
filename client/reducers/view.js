@@ -1,6 +1,6 @@
 import { SET_VIEW } from '../actions/index'
 
-const initialState = 'verdict'
+const initialState = 'login'
 
 export default (state = initialState, { type, view }) => {
   switch (type) {

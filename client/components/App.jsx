@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 
 import Login from './Login'
 import Verdict from './Verdict'
+import Form from './Form'
 
 const App = ({ view }) => (
   <>
@@ -16,7 +17,7 @@ const displayView = view => {
   if (view === 'login') {
     return <Login />
   } else if (view === 'questions') {
-    return 'questions'
+    return <Form/>
   } else if (view === 'verdict') {
     return <Verdict />
   }
