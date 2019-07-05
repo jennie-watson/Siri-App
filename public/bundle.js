@@ -161,20 +161,20 @@ function getData() {
 /*!*********************************!*\
   !*** ./client/actions/index.js ***!
   \*********************************/
-/*! exports provided: SET_NAME, SET_VIEW, setName, setView */
+/*! exports provided: SET_NAME, SET_VIEW, RESET_STATE, setName, setView, resetState */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SET_NAME", function() { return SET_NAME; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SET_VIEW", function() { return SET_VIEW; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RESET_STATE", function() { return RESET_STATE; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setName", function() { return setName; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setView", function() { return setView; });
-/* harmony import */ var superagent__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! superagent */ "./node_modules/superagent/lib/client.js");
-/* harmony import */ var superagent__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(superagent__WEBPACK_IMPORTED_MODULE_0__);
-
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "resetState", function() { return resetState; });
 var SET_NAME = 'SET_NAME';
 var SET_VIEW = 'SET_VIEW';
+var RESET_STATE = 'RESET_STATE';
 var setName = function setName(name) {
   return {
     type: SET_NAME,
@@ -185,6 +185,11 @@ var setView = function setView(view) {
   return {
     type: SET_VIEW,
     view: view
+  };
+};
+var resetState = function resetState() {
+  return {
+    type: RESET_STATE
   };
 };
 
@@ -249,6 +254,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _actions_getData__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../actions/getData */ "./client/actions/getData.js");
+/* harmony import */ var _actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../actions */ "./client/actions/index.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -268,6 +274,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 
 
@@ -310,6 +317,8 @@ function (_React$Component) {
       var total = Number(one) + Number(two) + Number(three) + Number(four) + Number(five);
 
       _this.props.dispatch(Object(_actions_getData__WEBPACK_IMPORTED_MODULE_2__["setScore"])(total));
+
+      _this.props.dispatch(Object(_actions__WEBPACK_IMPORTED_MODULE_3__["setView"])('verdict'));
     });
 
     _defineProperty(_assertThisInitialized(_this), "handleInputChange", function (event) {
@@ -318,7 +327,36 @@ function (_React$Component) {
       var name = target.name;
       console.log(value);
 
+      if (name === 'one') {
+        _this.talk('hmmm');
+      } else if (name === 'two') {
+        _this.talk('oooh');
+      } else if (name === 'three') {
+        _this.talk('really?');
+      } else if (name === 'three') {
+        _this.talk('oh');
+      } else if (name === 'four') {
+        _this.talk('finally');
+      } else if (name === 'five') {
+        _this.talk('mmm yes');
+      }
+
       _this.setState(_defineProperty({}, name, value));
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "talk", function () {
+      var message = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'hello keith';
+      var voices = window.speechSynthesis.getVoices(); // voices.map( voice => voice.name)
+      // console.log(voices)
+      // console.log('hello siri')
+
+      var speech = new SpeechSynthesisUtterance();
+      speech.text = message;
+      speech.volume = 1;
+      speech.rate = 1;
+      speech.pitch = 2; // speech.voice = voices[50]
+
+      window.speechSynthesis.speak(speech);
     });
 
     return _this;
@@ -347,7 +385,7 @@ function (_React$Component) {
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, question.questions), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
           onChange: _this2.handleInputChange,
           name: question.name
-        }, question.answers.map(function (answer, i) {
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", null, "Please select an option..."), question.answers.map(function (answer, i) {
           return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
             value: question.score[i]
           }, answer);
@@ -434,12 +472,16 @@ function (_React$Component) {
 
     _defineProperty(_assertThisInitialized(_this), "talk", function () {
       var message = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'hello keith';
+      var voices = window.speechSynthesis.getVoices(); // voices.map( voice => voice.name)
+      // console.log(voices)
+
       console.log('hello siri');
       var speech = new SpeechSynthesisUtterance();
-      speech.text = message;
+      speech.text = 'hello ' + message;
       speech.volume = 1;
       speech.rate = 1;
-      speech.pitch = 1;
+      speech.pitch = 3; // speech.voice = voices[50]
+
       window.speechSynthesis.speak(speech);
     });
 
@@ -452,7 +494,7 @@ function (_React$Component) {
     _defineProperty(_assertThisInitialized(_this), "handleSubmit", function (e) {
       e.preventDefault();
 
-      _this.talk();
+      _this.talk(_this.state.name);
 
       _this.props.dispatch(Object(_actions__WEBPACK_IMPORTED_MODULE_2__["setName"])(_this.state.name));
 
@@ -546,16 +588,33 @@ function (_React$Component) {
 
     _defineProperty(_assertThisInitialized(_this), "response", function (score) {
       if (score < 5) {
-        return 'ew, get away from me';
+        _this.talk('ew, get away from me');
       } else if (score > 11) {
-        return 'i love you ';
+        _this.talk('i love you ');
       } else {
-        return 'you aight';
+        _this.talk('you aight ');
       }
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "talk", function () {
+      var message = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'hello keith';
+      var voices = window.speechSynthesis.getVoices(); // voices.map( voice => voice.name)
+      // console.log(voices)
+      // console.log('hello siri')
+
+      var speech = new SpeechSynthesisUtterance();
+      speech.text = message;
+      speech.volume = 1;
+      speech.rate = 1;
+      speech.pitch = 2; // speech.voice = voices[3]
+
+      window.speechSynthesis.speak(speech);
     });
 
     _defineProperty(_assertThisInitialized(_this), "handleClick", function (e) {
       _this.props.dispatch(Object(_actions_index__WEBPACK_IMPORTED_MODULE_2__["setView"])('login'));
+
+      _this.props.dispatch(Object(_actions_index__WEBPACK_IMPORTED_MODULE_2__["resetState"])());
     });
 
     return _this;
@@ -569,7 +628,7 @@ function (_React$Component) {
         className: "container-3"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "VerdictMessage"
-      }, "Tamari, are you good enough to date Siri?"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Your score is ", this.props.score), this.response(this.props.score), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      }, this.props.name, " are you good enough to date Siri?"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Your score is ", this.props.score), this.response(this.props.score), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         onClick: this.handleClick
       }, "Get Another Chance At Love")));
     }
@@ -580,7 +639,8 @@ function (_React$Component) {
 
 var mapStateToProps = function mapStateToProps(state) {
   return {
-    score: state.verdict
+    score: state.score,
+    name: state.name
   };
 };
 
@@ -633,6 +693,8 @@ document.addEventListener('DOMContentLoaded', function () {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _actions_getData__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/getData */ "./client/actions/getData.js");
+/* harmony import */ var _actions_index__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../actions/index */ "./client/actions/index.js");
+
 
 
 function getData() {
@@ -642,6 +704,9 @@ function getData() {
   switch (action.type) {
     case _actions_getData__WEBPACK_IMPORTED_MODULE_0__["RECIEVE_DATA"]:
       return action.data;
+
+    case _actions_index__WEBPACK_IMPORTED_MODULE_1__["RESET_STATE"]:
+      return state;
 
     default:
       return state;
@@ -662,23 +727,20 @@ function getData() {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
-/* harmony import */ var _verdict__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./verdict */ "./client/reducers/verdict.js");
-/* harmony import */ var _name__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./name */ "./client/reducers/name.js");
-/* harmony import */ var _view__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./view */ "./client/reducers/view.js");
-/* harmony import */ var _score__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./score */ "./client/reducers/score.js");
-/* harmony import */ var _data__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./data */ "./client/reducers/data.js");
-
+/* harmony import */ var _name__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./name */ "./client/reducers/name.js");
+/* harmony import */ var _view__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./view */ "./client/reducers/view.js");
+/* harmony import */ var _score__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./score */ "./client/reducers/score.js");
+/* harmony import */ var _data__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./data */ "./client/reducers/data.js");
 
 
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])({
-  verdict: _verdict__WEBPACK_IMPORTED_MODULE_1__["default"],
-  data: _data__WEBPACK_IMPORTED_MODULE_5__["default"],
-  name: _name__WEBPACK_IMPORTED_MODULE_2__["default"],
-  score: _score__WEBPACK_IMPORTED_MODULE_4__["default"],
-  view: _view__WEBPACK_IMPORTED_MODULE_3__["default"]
+  data: _data__WEBPACK_IMPORTED_MODULE_4__["default"],
+  name: _name__WEBPACK_IMPORTED_MODULE_1__["default"],
+  score: _score__WEBPACK_IMPORTED_MODULE_3__["default"],
+  view: _view__WEBPACK_IMPORTED_MODULE_2__["default"]
 }));
 
 /***/ }),
@@ -706,6 +768,9 @@ var initialState = 'user undefined';
     case _actions__WEBPACK_IMPORTED_MODULE_0__["SET_NAME"]:
       return name;
 
+    case _actions__WEBPACK_IMPORTED_MODULE_0__["RESET_STATE"]:
+      return state;
+
     default:
       return state;
   }
@@ -723,6 +788,8 @@ var initialState = 'user undefined';
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _actions_getData__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/getData */ "./client/actions/getData.js");
+/* harmony import */ var _actions_index__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../actions/index */ "./client/actions/index.js");
+
 
 
 function setScore() {
@@ -733,45 +800,15 @@ function setScore() {
     case _actions_getData__WEBPACK_IMPORTED_MODULE_0__["SCORE"]:
       return action.score;
 
+    case _actions_index__WEBPACK_IMPORTED_MODULE_1__["RESET_STATE"]:
+      return state;
+
     default:
       return state;
   }
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (setScore);
-
-/***/ }),
-
-/***/ "./client/reducers/verdict.js":
-/*!************************************!*\
-  !*** ./client/reducers/verdict.js ***!
-  \************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions */ "./client/actions/index.js");
-
-var initialState = 13;
-
-var reducer = function reducer() {
-  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
-
-  var _ref = arguments.length > 1 ? arguments[1] : undefined,
-      type = _ref.type,
-      score = _ref.score;
-
-  switch (type) {
-    case _actions__WEBPACK_IMPORTED_MODULE_0__["GET_SCORE"]:
-      return score;
-
-    default:
-      return state;
-  }
-};
-
-/* harmony default export */ __webpack_exports__["default"] = (reducer);
 
 /***/ }),
 
@@ -797,6 +834,9 @@ var initialState = 'verdict';
   switch (type) {
     case _actions_index__WEBPACK_IMPORTED_MODULE_0__["SET_VIEW"]:
       return view;
+
+    case _actions_index__WEBPACK_IMPORTED_MODULE_0__["RESET_STATE"]:
+      return state;
 
     default:
       return state;
