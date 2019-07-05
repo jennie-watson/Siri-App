@@ -56,7 +56,8 @@ class Verdict extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    score: state.score
+    score: state.score,
+    name: state.name
   }
 }
 
