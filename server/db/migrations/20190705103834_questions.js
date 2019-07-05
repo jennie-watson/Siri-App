@@ -1,6 +1,7 @@
 exports.up = function (knex, Promise) {
   return knex.schema.createTable('form', table => {
     table.increments('id').primary()
+    table.string('name'),
     table.string('questions')
     table.string('answers'),
     table.string('score')
