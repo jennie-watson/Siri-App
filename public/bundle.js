@@ -547,12 +547,27 @@ function (_React$Component) {
 
     _defineProperty(_assertThisInitialized(_this), "response", function (score) {
       if (score < 5) {
-        return 'ew, get away from me';
+        _this.talk('ew, get away from me');
       } else if (score > 11) {
-        return 'i love you ';
+        _this.talk('i love you ');
       } else {
-        return 'you aight';
+        _this.talk('you aight ');
       }
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "talk", function () {
+      var message = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'hello keith';
+      var voices = window.speechSynthesis.getVoices(); // voices.map( voice => voice.name)
+      // console.log(voices)
+
+      console.log('hello siri');
+      var speech = new SpeechSynthesisUtterance();
+      speech.text = message;
+      speech.volume = 1;
+      speech.rate = 1;
+      speech.pitch = 3;
+      speech.voice = voices[3];
+      window.speechSynthesis.speak(speech);
     });
 
     _defineProperty(_assertThisInitialized(_this), "handleClick", function (e) {
