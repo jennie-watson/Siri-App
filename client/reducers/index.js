@@ -1,13 +1,10 @@
 import { combineReducers } from 'redux'
 import verdict from './verdict'
 
-import errorMessage from './error-message'
-import data from './data'
-import waiting from './waiting'
-
 import name from './name'
 import view from './view'
 import score from './score'
+import data from './data'
 
 export default combineReducers({
   verdict,
