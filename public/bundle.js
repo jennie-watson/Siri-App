@@ -161,11 +161,24 @@ function getData() {
 /*!*********************************!*\
   !*** ./client/actions/index.js ***!
   \*********************************/
+<<<<<<< HEAD
+/*! exports provided: GET_SCORE, getScore */
+=======
 /*! exports provided: SHOW_ERROR, RECEIVE_POSTS, REQUEST_POSTS, SET_NAME, SET_VIEW, requestPosts, receivePosts, showError, fetchPosts, setName, setView */
+>>>>>>> fe8f5793a7d9219da9ec4f06576ac674079f0578
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+<<<<<<< HEAD
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GET_SCORE", function() { return GET_SCORE; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getScore", function() { return getScore; });
+/* harmony import */ var superagent__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! superagent */ "./node_modules/superagent/lib/client.js");
+/* harmony import */ var superagent__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(superagent__WEBPACK_IMPORTED_MODULE_0__);
+
+var GET_SCORE = 'GET_SCORE';
+var getScore = function getScore(score) {
+=======
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SHOW_ERROR", function() { return SHOW_ERROR; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_POSTS", function() { return RECEIVE_POSTS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "REQUEST_POSTS", function() { return REQUEST_POSTS; });
@@ -186,10 +199,14 @@ var REQUEST_POSTS = 'REQUEST_POSTS';
 var SET_NAME = 'SET_NAME';
 var SET_VIEW = 'SET_VIEW';
 var requestPosts = function requestPosts() {
+>>>>>>> fe8f5793a7d9219da9ec4f06576ac674079f0578
   return {
-    type: REQUEST_POSTS
+    type: GET_SCORE,
+    score: score
   };
 };
+<<<<<<< HEAD
+=======
 var receivePosts = function receivePosts(posts) {
   return {
     type: RECEIVE_POSTS,
@@ -226,6 +243,7 @@ var setView = function setView(view) {
     view: view
   };
 };
+>>>>>>> fe8f5793a7d9219da9ec4f06576ac674079f0578
 
 /***/ }),
 
@@ -240,17 +258,38 @@ var setView = function setView(view) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+<<<<<<< HEAD
+/* harmony import */ var _ErrorMessage__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ErrorMessage */ "./client/components/ErrorMessage.jsx");
+/* harmony import */ var _LoadSubreddit__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./LoadSubreddit */ "./client/components/LoadSubreddit.jsx");
+/* harmony import */ var _SubredditList__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./SubredditList */ "./client/components/SubredditList.jsx");
+/* harmony import */ var _WaitIndicator__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./WaitIndicator */ "./client/components/WaitIndicator.jsx");
+/* harmony import */ var _Verdict__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Verdict */ "./client/components/Verdict.jsx");
+
+
+
+=======
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _Login__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Login */ "./client/components/Login.jsx");
+<<<<<<< HEAD
 /* harmony import */ var _Form__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Form */ "./client/components/Form.jsx");
 
+=======
+>>>>>>> fe8f5793a7d9219da9ec4f06576ac674079f0578
+>>>>>>> f2fb93564ab843aa96b4bdfcaf076d216c464786
 
 
 
 
+<<<<<<< HEAD
+var App = function App() {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "app"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Verdict__WEBPACK_IMPORTED_MODULE_5__["default"], null));
+=======
 var App = function App(_ref) {
   var view = _ref.view;
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, displayView(view));
+>>>>>>> fe8f5793a7d9219da9ec4f06576ac674079f0578
 };
 
 var displayView = function displayView(view) {
@@ -444,8 +483,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 var Login =
 /*#__PURE__*/
-function (_Component) {
-  _inherits(Login, _Component);
+function (_React$Component) {
+  _inherits(Login, _React$Component);
 
   function Login() {
     var _getPrototypeOf2;
@@ -464,18 +503,129 @@ function (_Component) {
       name: ''
     });
 
+    _defineProperty(_assertThisInitialized(_this), "talk", function () {
+      var message = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'hello keith';
+      console.log('hello siri');
+      var speech = new SpeechSynthesisUtterance();
+      speech.text = message;
+      speech.volume = 1;
+      speech.rate = 1;
+      speech.pitch = 1;
+      window.speechSynthesis.speak(speech);
+    });
+
     _defineProperty(_assertThisInitialized(_this), "handleInput", function (e) {
       _this.setState({
         name: e.target.value
       });
     });
 
+<<<<<<< HEAD
+/***/ "./client/components/Verdict.jsx":
+/*!***************************************!*\
+  !*** ./client/components/Verdict.jsx ***!
+  \***************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+
+var Verdict =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(Verdict, _React$Component);
+
+  function Verdict() {
+    var _getPrototypeOf2;
+
+    var _this;
+
+    _classCallCheck(this, Verdict);
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(Verdict)).call.apply(_getPrototypeOf2, [this].concat(args)));
+
+    _defineProperty(_assertThisInitialized(_this), "response", function (score) {
+      if (score < 5) {
+        return 'ew, get away from me';
+      } else if (score > 11) {
+        return 'i love you ';
+      } else {
+        return 'you aight';
+      }
+    });
+
+    return _this;
+  }
+
+  _createClass(Verdict, [{
+    key: "render",
+    value: function render() {
+      console.log(this.props);
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "VerdictMessage"
+      }, "Tamari, are you good enough to date Siri?"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Your score is ", this.props.score), this.response(this.props.score));
+    }
+  }]);
+
+  return Verdict;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+
+var mapStateToProps = function mapStateToProps(state) {
+  return {
+    score: state.verdict
+  };
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(mapStateToProps)(Verdict)); // heading
+// pull score in
+// pull message in
+
+/***/ }),
+
+/***/ "./client/components/WaitIndicator.jsx":
+/*!*********************************************!*\
+  !*** ./client/components/WaitIndicator.jsx ***!
+  \*********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+=======
     _defineProperty(_assertThisInitialized(_this), "handleSubmit", function (e) {
       e.preventDefault();
+>>>>>>> fe8f5793a7d9219da9ec4f06576ac674079f0578
 
-      _this.props.dispatch(Object(_actions__WEBPACK_IMPORTED_MODULE_2__["setName"])(_this.state.name));
+      _this.talk(); // this.props.dispatch(setName(this.state.name))
+      // this.props.dispatch(setView('questions'))
 
-      _this.props.dispatch(Object(_actions__WEBPACK_IMPORTED_MODULE_2__["setView"])('questions'));
     });
 
     return _this;
@@ -500,7 +650,7 @@ function (_Component) {
   }]);
 
   return Login;
-}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])()(Login));
 
@@ -541,6 +691,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 /***/ }),
 
+<<<<<<< HEAD
 /***/ "./client/reducers/data.js":
 /*!*********************************!*\
   !*** ./client/reducers/data.js ***!
@@ -599,6 +750,8 @@ function errorMessage() {
 
 /***/ }),
 
+=======
+>>>>>>> f2fb93564ab843aa96b4bdfcaf076d216c464786
 /***/ "./client/reducers/index.js":
 /*!**********************************!*\
   !*** ./client/reducers/index.js ***!
@@ -609,13 +762,23 @@ function errorMessage() {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
+<<<<<<< HEAD
+/* harmony import */ var _verdict__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./verdict */ "./client/reducers/verdict.js");
+
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])({
+  verdict: _verdict__WEBPACK_IMPORTED_MODULE_1__["default"]
+=======
 /* harmony import */ var _error_message__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./error-message */ "./client/reducers/error-message.js");
 /* harmony import */ var _data__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./data */ "./client/reducers/data.js");
 /* harmony import */ var _waiting__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./waiting */ "./client/reducers/waiting.js");
 /* harmony import */ var _name__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./name */ "./client/reducers/name.js");
 /* harmony import */ var _view__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./view */ "./client/reducers/view.js");
+<<<<<<< HEAD
 /* harmony import */ var _score__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./score */ "./client/reducers/score.js");
 
+=======
+>>>>>>> f2fb93564ab843aa96b4bdfcaf076d216c464786
 
 
 
@@ -627,12 +790,24 @@ __webpack_require__.r(__webpack_exports__);
   data: _data__WEBPACK_IMPORTED_MODULE_2__["default"],
   waiting: _waiting__WEBPACK_IMPORTED_MODULE_3__["default"],
   name: _name__WEBPACK_IMPORTED_MODULE_4__["default"],
+<<<<<<< HEAD
   view: _view__WEBPACK_IMPORTED_MODULE_5__["default"],
   score: _score__WEBPACK_IMPORTED_MODULE_6__["default"]
+=======
+<<<<<<< HEAD
+  view: _view__WEBPACK_IMPORTED_MODULE_5__["default"]
+=======
+  view: _view__WEBPACK_IMPORTED_MODULE_6__["default"]
+>>>>>>> fe8f5793a7d9219da9ec4f06576ac674079f0578
+>>>>>>> c1bb566991c58e56e0d75de4437295183b221441
+>>>>>>> f2fb93564ab843aa96b4bdfcaf076d216c464786
 }));
 
 /***/ }),
 
+<<<<<<< HEAD
+/***/ "./client/reducers/verdict.js":
+=======
 /***/ "./client/reducers/name.js":
 /*!*********************************!*\
   !*** ./client/reducers/name.js ***!
@@ -723,8 +898,9 @@ var initialState = 'login';
 /***/ }),
 
 /***/ "./client/reducers/waiting.js":
+>>>>>>> fe8f5793a7d9219da9ec4f06576ac674079f0578
 /*!************************************!*\
-  !*** ./client/reducers/waiting.js ***!
+  !*** ./client/reducers/verdict.js ***!
   \************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -733,27 +909,25 @@ var initialState = 'login';
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions */ "./client/actions/index.js");
 
+var initialState = 13;
 
-var waiting = function waiting() {
-  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
-  var action = arguments.length > 1 ? arguments[1] : undefined;
+var reducer = function reducer() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
 
-  switch (action.type) {
-    case _actions__WEBPACK_IMPORTED_MODULE_0__["REQUEST_POSTS"]:
-      return true;
+  var _ref = arguments.length > 1 ? arguments[1] : undefined,
+      type = _ref.type,
+      score = _ref.score;
 
-    case _actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_POSTS"]:
-      return false;
-
-    case _actions__WEBPACK_IMPORTED_MODULE_0__["SHOW_ERROR"]:
-      return false;
+  switch (type) {
+    case _actions__WEBPACK_IMPORTED_MODULE_0__["GET_SCORE"]:
+      return score;
 
     default:
       return state;
   }
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (waiting);
+/* harmony default export */ __webpack_exports__["default"] = (reducer);
 
 /***/ }),
 

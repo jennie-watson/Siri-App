@@ -2,9 +2,20 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { setName, setView } from '../actions'
 
-class Login extends Component {
-  state={
+class Login extends React.Component {
+  state = {
     name: ''
+  }
+
+  talk = (message = 'hello keith') => {
+    console.log('hello siri')
+    const speech = new SpeechSynthesisUtterance()
+    speech.text = message
+    speech.volume = 1
+    speech.rate = 1
+    speech.pitch = 1
+
+    window.speechSynthesis.speak(speech)
   }
 
   handleInput = e => {
@@ -15,16 +26,17 @@ class Login extends Component {
 
   handleSubmit = e => {
     e.preventDefault()
-    this.props.dispatch(setName(this.state.name))
-    this.props.dispatch(setView('questions'))
+    this.talk()
+    // this.props.dispatch(setName(this.state.name))
+    // this.props.dispatch(setView('questions'))
   }
-  render () {
+  render() {
     return (
-      <div className = 'loginForm'>
+      <div className='loginForm'>
         <h1>Are you worthy of SIRI ???</h1>
         <h2>Try Your Luck!</h2>
         <form onSubmit={this.handleSubmit}>
-          <input type="text" placeholder="enter name" onChange={this.handleInput} value={this.state.name}/>
+          <input type="text" placeholder="enter name" onChange={this.handleInput} value={this.state.name} />
           <button type="submit">submit</button>
         </form>
       </div>
