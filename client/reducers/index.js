@@ -1,16 +1,18 @@
 import { combineReducers } from 'redux'
 
 import errorMessage from './error-message'
-import subreddits from './subreddits'
+import data from './data'
 import waiting from './waiting'
 
 import name from './name'
 import view from './view'
+import score from './score'
 
 export default combineReducers({
   errorMessage,
-  subreddits,
+  data,
   waiting,
   name,
-  view
+  view,
+  score
 })
