@@ -86,33 +86,95 @@
 /************************************************************************/
 /******/ ({
 
-/***/ "./client/actions/index.js":
-/*!*********************************!*\
-  !*** ./client/actions/index.js ***!
-  \*********************************/
-/*! exports provided: GET_SCORE, SET_NAME, SET_VIEW, getScore, setName, setView */
+/***/ "./client/actions/getData.js":
+/*!***********************************!*\
+  !*** ./client/actions/getData.js ***!
+  \***********************************/
+/*! exports provided: SHOW_ERROR, GET_DATA, RECIEVE_DATA, SCORE, requestPosts, receivePosts, showError, setScore, getData */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GET_SCORE", function() { return GET_SCORE; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SHOW_ERROR", function() { return SHOW_ERROR; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GET_DATA", function() { return GET_DATA; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECIEVE_DATA", function() { return RECIEVE_DATA; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SCORE", function() { return SCORE; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "requestPosts", function() { return requestPosts; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "receivePosts", function() { return receivePosts; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "showError", function() { return showError; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setScore", function() { return setScore; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getData", function() { return getData; });
+/* harmony import */ var superagent__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! superagent */ "./node_modules/superagent/lib/client.js");
+/* harmony import */ var superagent__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(superagent__WEBPACK_IMPORTED_MODULE_0__);
+
+var SHOW_ERROR = 'SHOW_ERROR';
+var GET_DATA = 'GET_DATA';
+var RECIEVE_DATA = 'RECIEVE_DATA';
+var SCORE = 'SCORE';
+var requestPosts = function requestPosts() {
+  return {
+    type: GET_DATA
+  };
+};
+var receivePosts = function receivePosts(data) {
+  return {
+    type: RECIEVE_DATA,
+    data: data
+  };
+};
+var showError = function showError(errorMessage) {
+  return {
+    type: SHOW_ERROR,
+    errorMessage: errorMessage
+  };
+};
+var setScore = function setScore(score) {
+  return {
+    type: SCORE,
+    score: score
+  };
+};
+function getData() {
+  return function (dispatch) {
+    dispatch(requestPosts());
+    return superagent__WEBPACK_IMPORTED_MODULE_0___default.a.get('/api/questions').then(function (res) {
+      var mapped = res.body.map(function (item) {
+        return {
+          id: item.id,
+          name: item.name,
+          questions: item.questions,
+          answers: JSON.parse(item.answers),
+          score: JSON.parse(item.score)
+        };
+      });
+      console.log(mapped);
+      dispatch(receivePosts(mapped));
+    })["catch"](function (err) {
+      dispatch(showError(err.message));
+    });
+  };
+}
+
+/***/ }),
+
+/***/ "./client/actions/index.js":
+/*!*********************************!*\
+  !*** ./client/actions/index.js ***!
+  \*********************************/
+/*! exports provided: SET_NAME, SET_VIEW, setName, setView */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SET_NAME", function() { return SET_NAME; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SET_VIEW", function() { return SET_VIEW; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getScore", function() { return getScore; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setName", function() { return setName; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setView", function() { return setView; });
 /* harmony import */ var superagent__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! superagent */ "./node_modules/superagent/lib/client.js");
 /* harmony import */ var superagent__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(superagent__WEBPACK_IMPORTED_MODULE_0__);
 
-var GET_SCORE = 'GET_SCORE';
 var SET_NAME = 'SET_NAME';
 var SET_VIEW = 'SET_VIEW';
-var getScore = function getScore(score) {
-  return {
-    type: GET_SCORE,
-    score: score
-  };
-};
 var setName = function setName(name) {
   return {
     type: SET_NAME,
@@ -141,7 +203,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _Login__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Login */ "./client/components/Login.jsx");
-/* harmony import */ var _Form__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Form */ "./client/components/Form.jsx");
+/* harmony import */ var _Verdict__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Verdict */ "./client/components/Verdict.jsx");
+/* harmony import */ var _Form__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Form */ "./client/components/Form.jsx");
+
 
 
 
@@ -156,9 +220,9 @@ var displayView = function displayView(view) {
   if (view === 'login') {
     return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Login__WEBPACK_IMPORTED_MODULE_2__["default"], null);
   } else if (view === 'questions') {
-    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Form__WEBPACK_IMPORTED_MODULE_3__["default"], null);
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Form__WEBPACK_IMPORTED_MODULE_4__["default"], null);
   } else if (view === 'verdict') {
-    return 'verdict';
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Verdict__WEBPACK_IMPORTED_MODULE_3__["default"], null);
   }
 };
 
@@ -262,9 +326,11 @@ function (_React$Component) {
     _defineProperty(_assertThisInitialized(_this), "handleSubmit", function (e) {
       e.preventDefault();
 
-      _this.talk(); // this.props.dispatch(setName(this.state.name))
-      // this.props.dispatch(setView('questions'))
+      _this.talk();
 
+      _this.props.dispatch(Object(_actions__WEBPACK_IMPORTED_MODULE_2__["setName"])(_this.state.name));
+
+      _this.props.dispatch(Object(_actions__WEBPACK_IMPORTED_MODULE_2__["setView"])('questions'));
     });
 
     return _this;
@@ -294,6 +360,103 @@ function (_React$Component) {
 }(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])()(Login));
+
+/***/ }),
+
+/***/ "./client/components/Verdict.jsx":
+/*!***************************************!*\
+  !*** ./client/components/Verdict.jsx ***!
+  \***************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _actions_index__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../actions/index */ "./client/actions/index.js");
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+
+
+var Verdict =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(Verdict, _React$Component);
+
+  function Verdict() {
+    var _getPrototypeOf2;
+
+    var _this;
+
+    _classCallCheck(this, Verdict);
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(Verdict)).call.apply(_getPrototypeOf2, [this].concat(args)));
+
+    _defineProperty(_assertThisInitialized(_this), "response", function (score) {
+      if (score < 5) {
+        return 'ew, get away from me';
+      } else if (score > 11) {
+        return 'i love you ';
+      } else {
+        return 'you aight';
+      }
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "handleClick", function (e) {
+      _this.props.dispatch(Object(_actions_index__WEBPACK_IMPORTED_MODULE_2__["setView"])('login'));
+    });
+
+    return _this;
+  }
+
+  _createClass(Verdict, [{
+    key: "render",
+    value: function render() {
+      console.log(this.props);
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "VerdictMessage"
+      }, "Tamari, are you good enough to date Siri?"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Your score is ", this.props.score), this.response(this.props.score), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        onClick: this.handleClick
+      }, "Get Another Chance At Love"));
+    }
+  }]);
+
+  return Verdict;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+
+var mapStateToProps = function mapStateToProps(state) {
+  return {
+    score: state.verdict
+  };
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(mapStateToProps)(Verdict));
 
 /***/ }),
 
@@ -332,14 +495,185 @@ document.addEventListener('DOMContentLoaded', function () {
 
 /***/ }),
 
+/***/ "./client/reducers/data.js":
+/*!*********************************!*\
+  !*** ./client/reducers/data.js ***!
+  \*********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _actions_getData__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/getData */ "./client/actions/getData.js");
+
+
+function getData() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+
+  switch (action.type) {
+    case _actions_getData__WEBPACK_IMPORTED_MODULE_0__["RECIEVE_DATA"]:
+      return action.data;
+
+    default:
+      return state;
+  }
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (getData);
+
+/***/ }),
+
 /***/ "./client/reducers/index.js":
 /*!**********************************!*\
   !*** ./client/reducers/index.js ***!
   \**********************************/
 /*! exports provided: default */
-/***/ (function(module, exports) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: /home/eda/workspace/Week-6-Spongebob/client/reducers/index.js: Unexpected token (3:0)\n\n\u001b[0m \u001b[90m 1 | \u001b[39m\u001b[36mimport\u001b[39m { combineReducers } from \u001b[32m'redux'\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 2 | \u001b[39m\u001b[36mimport\u001b[39m verdict from \u001b[32m'./verdict'\u001b[39m\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 3 | \u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<\u001b[39m \u001b[33mHEAD\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m   | \u001b[39m\u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 4 | \u001b[39m\u001b[33m===\u001b[39m\u001b[33m===\u001b[39m\u001b[33m=\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 5 | \u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 6 | \u001b[39m\u001b[36mimport\u001b[39m errorMessage from \u001b[32m'./error-message'\u001b[39m\u001b[0m\n    at Object.raise (/home/eda/workspace/Week-6-Spongebob/node_modules/@babel/parser/lib/index.js:6344:17)\n    at Object.unexpected (/home/eda/workspace/Week-6-Spongebob/node_modules/@babel/parser/lib/index.js:7659:16)\n    at Object.parseExprAtom (/home/eda/workspace/Week-6-Spongebob/node_modules/@babel/parser/lib/index.js:8828:20)\n    at Object.parseExprAtom (/home/eda/workspace/Week-6-Spongebob/node_modules/@babel/parser/lib/index.js:3599:20)\n    at Object.parseExprSubscripts (/home/eda/workspace/Week-6-Spongebob/node_modules/@babel/parser/lib/index.js:8413:23)\n    at Object.parseMaybeUnary (/home/eda/workspace/Week-6-Spongebob/node_modules/@babel/parser/lib/index.js:8393:21)\n    at Object.parseExprOps (/home/eda/workspace/Week-6-Spongebob/node_modules/@babel/parser/lib/index.js:8280:23)\n    at Object.parseMaybeConditional (/home/eda/workspace/Week-6-Spongebob/node_modules/@babel/parser/lib/index.js:8253:23)\n    at Object.parseMaybeAssign (/home/eda/workspace/Week-6-Spongebob/node_modules/@babel/parser/lib/index.js:8200:21)\n    at Object.parseExpression (/home/eda/workspace/Week-6-Spongebob/node_modules/@babel/parser/lib/index.js:8148:23)\n    at Object.parseStatementContent (/home/eda/workspace/Week-6-Spongebob/node_modules/@babel/parser/lib/index.js:9917:23)\n    at Object.parseStatement (/home/eda/workspace/Week-6-Spongebob/node_modules/@babel/parser/lib/index.js:9788:17)\n    at Object.parseBlockOrModuleBlockBody (/home/eda/workspace/Week-6-Spongebob/node_modules/@babel/parser/lib/index.js:10364:25)\n    at Object.parseBlockBody (/home/eda/workspace/Week-6-Spongebob/node_modules/@babel/parser/lib/index.js:10351:10)\n    at Object.parseTopLevel (/home/eda/workspace/Week-6-Spongebob/node_modules/@babel/parser/lib/index.js:9717:10)\n    at Object.parse (/home/eda/workspace/Week-6-Spongebob/node_modules/@babel/parser/lib/index.js:11233:17)\n    at parse (/home/eda/workspace/Week-6-Spongebob/node_modules/@babel/parser/lib/index.js:11269:38)\n    at parser (/home/eda/workspace/Week-6-Spongebob/node_modules/@babel/core/lib/transformation/normalize-file.js:170:34)\n    at normalizeFile (/home/eda/workspace/Week-6-Spongebob/node_modules/@babel/core/lib/transformation/normalize-file.js:138:11)\n    at runSync (/home/eda/workspace/Week-6-Spongebob/node_modules/@babel/core/lib/transformation/index.js:44:43)\n    at runAsync (/home/eda/workspace/Week-6-Spongebob/node_modules/@babel/core/lib/transformation/index.js:35:14)\n    at process.nextTick (/home/eda/workspace/Week-6-Spongebob/node_modules/@babel/core/lib/transform.js:34:34)\n    at process._tickCallback (internal/process/next_tick.js:61:11)");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
+/* harmony import */ var _verdict__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./verdict */ "./client/reducers/verdict.js");
+/* harmony import */ var _name__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./name */ "./client/reducers/name.js");
+/* harmony import */ var _view__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./view */ "./client/reducers/view.js");
+/* harmony import */ var _score__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./score */ "./client/reducers/score.js");
+/* harmony import */ var _data__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./data */ "./client/reducers/data.js");
+
+
+
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])({
+  verdict: _verdict__WEBPACK_IMPORTED_MODULE_1__["default"],
+  data: _data__WEBPACK_IMPORTED_MODULE_5__["default"],
+  name: _name__WEBPACK_IMPORTED_MODULE_2__["default"],
+  score: _score__WEBPACK_IMPORTED_MODULE_4__["default"],
+  view: _view__WEBPACK_IMPORTED_MODULE_3__["default"]
+}));
+
+/***/ }),
+
+/***/ "./client/reducers/name.js":
+/*!*********************************!*\
+  !*** ./client/reducers/name.js ***!
+  \*********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions */ "./client/actions/index.js");
+
+var initialState = 'user undefined';
+/* harmony default export */ __webpack_exports__["default"] = (function () {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
+
+  var _ref = arguments.length > 1 ? arguments[1] : undefined,
+      type = _ref.type,
+      name = _ref.name;
+
+  switch (type) {
+    case _actions__WEBPACK_IMPORTED_MODULE_0__["SET_NAME"]:
+      return name;
+
+    default:
+      return state;
+  }
+});
+
+/***/ }),
+
+/***/ "./client/reducers/score.js":
+/*!**********************************!*\
+  !*** ./client/reducers/score.js ***!
+  \**********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _actions_getData__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/getData */ "./client/actions/getData.js");
+
+
+function setScore() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+
+  switch (action.type) {
+    case _actions_getData__WEBPACK_IMPORTED_MODULE_0__["SCORE"]:
+      return action.score;
+
+    default:
+      return state;
+  }
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (setScore);
+
+/***/ }),
+
+/***/ "./client/reducers/verdict.js":
+/*!************************************!*\
+  !*** ./client/reducers/verdict.js ***!
+  \************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions */ "./client/actions/index.js");
+
+var initialState = 13;
+
+var reducer = function reducer() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
+
+  var _ref = arguments.length > 1 ? arguments[1] : undefined,
+      type = _ref.type,
+      score = _ref.score;
+
+  switch (type) {
+    case _actions__WEBPACK_IMPORTED_MODULE_0__["GET_SCORE"]:
+      return score;
+
+    default:
+      return state;
+  }
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (reducer);
+
+/***/ }),
+
+/***/ "./client/reducers/view.js":
+/*!*********************************!*\
+  !*** ./client/reducers/view.js ***!
+  \*********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _actions_index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/index */ "./client/actions/index.js");
+
+var initialState = 'login';
+/* harmony default export */ __webpack_exports__["default"] = (function () {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
+
+  var _ref = arguments.length > 1 ? arguments[1] : undefined,
+      type = _ref.type,
+      view = _ref.view;
+
+  switch (type) {
+    case _actions_index__WEBPACK_IMPORTED_MODULE_0__["SET_VIEW"]:
+      return view;
+
+    default:
+      return state;
+  }
+});
 
 /***/ }),
 

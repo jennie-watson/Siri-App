@@ -27,8 +27,8 @@ class Login extends React.Component {
   handleSubmit = e => {
     e.preventDefault()
     this.talk()
-    // this.props.dispatch(setName(this.state.name))
-    // this.props.dispatch(setView('questions'))
+    this.props.dispatch(setName(this.state.name))
+    this.props.dispatch(setView('questions'))
   }
   render() {
     return (
