@@ -275,8 +275,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 var Login =
 /*#__PURE__*/
-function (_Component) {
-  _inherits(Login, _Component);
+function (_React$Component) {
+  _inherits(Login, _React$Component);
 
   function Login() {
     var _getPrototypeOf2;
@@ -293,6 +293,17 @@ function (_Component) {
 
     _defineProperty(_assertThisInitialized(_this), "state", {
       name: ''
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "talk", function () {
+      var message = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'hello keith';
+      console.log('hello siri');
+      var speech = new SpeechSynthesisUtterance();
+      speech.text = message;
+      speech.volume = 1;
+      speech.rate = 1;
+      speech.pitch = 1;
+      window.speechSynthesis.speak(speech);
     });
 
     _defineProperty(_assertThisInitialized(_this), "handleInput", function (e) {
@@ -404,9 +415,9 @@ var mapStateToProps = function mapStateToProps(state) {
       e.preventDefault();
 >>>>>>> fe8f5793a7d9219da9ec4f06576ac674079f0578
 
-      _this.props.dispatch(Object(_actions__WEBPACK_IMPORTED_MODULE_2__["setName"])(_this.state.name));
+      _this.talk(); // this.props.dispatch(setName(this.state.name))
+      // this.props.dispatch(setView('questions'))
 
-      _this.props.dispatch(Object(_actions__WEBPACK_IMPORTED_MODULE_2__["setView"])('questions'));
     });
 
     return _this;
@@ -431,7 +442,7 @@ var mapStateToProps = function mapStateToProps(state) {
   }]);
 
   return Login;
-}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])()(Login));
 
@@ -493,7 +504,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _subreddits__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./subreddits */ "./client/reducers/subreddits.js");
 /* harmony import */ var _waiting__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./waiting */ "./client/reducers/waiting.js");
 /* harmony import */ var _name__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./name */ "./client/reducers/name.js");
-/* harmony import */ var _view__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./view */ "./client/reducers/view.js");
+/* harmony import */ var _view__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./view */ "./client/reducers/view.js");
 
 
 
@@ -505,8 +516,12 @@ __webpack_require__.r(__webpack_exports__);
   subreddits: _subreddits__WEBPACK_IMPORTED_MODULE_2__["default"],
   waiting: _waiting__WEBPACK_IMPORTED_MODULE_3__["default"],
   name: _name__WEBPACK_IMPORTED_MODULE_4__["default"],
+<<<<<<< HEAD
+  view: _view__WEBPACK_IMPORTED_MODULE_5__["default"]
+=======
   view: _view__WEBPACK_IMPORTED_MODULE_6__["default"]
 >>>>>>> fe8f5793a7d9219da9ec4f06576ac674079f0578
+>>>>>>> c1bb566991c58e56e0d75de4437295183b221441
 }));
 
 /***/ }),
