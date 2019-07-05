@@ -4,7 +4,6 @@ import { getData, setScore } from '../actions/getData'
 import { setView } from '../actions'
 
 class Form extends React.Component {
-
   state = {
     one: 0,
     two: 0,
@@ -21,13 +20,13 @@ class Form extends React.Component {
     this.props.dispatch(setView('verdict'))
   }
 
-  componentDidMount() {
+  componentDidMount () {
     this.props.dispatch(getData())
   }
 
   handleInputChange = (event) => {
-    const target = event.target;
-    const value = target.value;
+    const target = event.target
+    const value = target.value
     const name = target.name
     console.log(value)
 
@@ -35,16 +34,15 @@ class Form extends React.Component {
       this.talk('hmmm')
     } else if (name === 'two') {
       this.talk('oooh')
-    } else if ( name === 'three'){
+    } else if (name === 'three') {
       this.talk('really?')
-    }else if ( name === 'three'){
+    } else if (name === 'three') {
       this.talk('oh')
-    }else if ( name === 'four'){
+    } else if (name === 'four') {
       this.talk('finally')
-    }else if ( name === 'five'){
+    } else if (name === 'five') {
       this.talk('mmm yes')
     }
-
 
     this.setState({
       [name]: value
@@ -52,10 +50,9 @@ class Form extends React.Component {
   }
 
   talk = (message = 'hello keith') => {
-
     const voices = window.speechSynthesis.getVoices()
 
-    // voices.map( voice => voice.name)
+    const eng = voices.find(voice => voice.lang === 'en-US')
     // console.log(voices)
 
     // console.log('hello siri')
@@ -64,22 +61,22 @@ class Form extends React.Component {
     speech.volume = 1
     speech.rate = 1
     speech.pitch = 2
-    // speech.voice = voices[50]
+    speech.voice = eng
 
     window.speechSynthesis.speak(speech)
   }
 
-  render() {
+  render () {
     const { name, data } = this.props
     return (
-      <div>
+      <div className='container-2'>
         <form onSubmit={this.calcScore} >
           {data[0] && data.map(question => {
             return (
-              <div>
+              <div className='formStyle'>
                 <h1>{question.questions}</h1>
                 <select onChange={this.handleInputChange} name={question.name}>
-                <option>Please select an option...</option>
+                  <option>Please select an option...</option>
                   {question.answers.map((answer, i) => {
                     return (
                       <option value={question.score[i]}>{answer}</option>
@@ -90,7 +87,7 @@ class Form extends React.Component {
             )
           })}
           <br /><br />
-          <button type="submit">Check your Siri Compatibility</button>
+          <button type="submit" className="buttonForm">Check your Siri Compatibility</button>
         </form>
       </div>
     )

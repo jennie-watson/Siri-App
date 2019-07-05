@@ -22,12 +22,60 @@
   text-align: center;
   font-weight: 300;
   flex-grow: 0.3;
-  font-size: 65px;
-  color: skyblue;
+  font-size: 60px;
+  color: whitesmoke;
+  font-family: 'Press Start 2P', cursive;
 }
 
 .loginForm h2 {
-  font-size: 30px;
+  font-size: 50px;
   font-weight: 100;
-  color: blueviolet;
+  color: yellow;
+  font-family: 'Press Start 2P', cursive;
+}
+
+.container {
+  background-image: url("./5.gif");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 1000px;
+}
+
+.container-2 {
+  background-image: url("./Bcg3.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 1100px;
+  color: white;
+  text-align: center;
+  font-size: 30px;
+  font-family: 'Barrio', cursive;
+}
+
+.container-3 {
+  background-image: url("./9.gif");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 1000px;
+  color: white;
+  text-align: center;
+}
+
+.VerdictMessage {
+  font-size: 50px;
+  height: 80vh;
+}
+
+.score {
+  font-size: 50px;
+  position: relative;
+  bottom: 400px
+}
+
+.button-2 {
+  position: relative;
+  bottom: 300px
 }
