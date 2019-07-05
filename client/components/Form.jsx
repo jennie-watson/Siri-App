@@ -31,10 +31,42 @@ class Form extends React.Component {
     const name = target.name
     console.log(value)
 
+    if (name === 'one') {
+      this.talk('hmmm')
+    } else if (name === 'two') {
+      this.talk('oooh')
+    } else if ( name === 'three'){
+      this.talk('really?')
+    }else if ( name === 'three'){
+      this.talk('oh')
+    }else if ( name === 'four'){
+      this.talk('finally')
+    }else if ( name === 'five'){
+      this.talk('mmm yes')
+    }
+
 
     this.setState({
       [name]: value
     })
+  }
+
+  talk = (message = 'hello keith') => {
+
+    const voices = window.speechSynthesis.getVoices()
+
+    // voices.map( voice => voice.name)
+    // console.log(voices)
+
+    // console.log('hello siri')
+    const speech = new SpeechSynthesisUtterance()
+    speech.text = message
+    speech.volume = 1
+    speech.rate = 1
+    speech.pitch = 2
+    // speech.voice = voices[50]
+
+    window.speechSynthesis.speak(speech)
   }
 
   render() {

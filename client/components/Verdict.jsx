@@ -21,13 +21,13 @@ class Verdict extends React.Component {
     // voices.map( voice => voice.name)
     // console.log(voices)
 
-    console.log('hello siri')
+    // console.log('hello siri')
     const speech = new SpeechSynthesisUtterance()
     speech.text = message
     speech.volume = 1
     speech.rate = 1
-    speech.pitch = 3
-    speech.voice = voices[3]
+    speech.pitch = 2
+    // speech.voice = voices[3]
 
     window.speechSynthesis.speak(speech)
   }

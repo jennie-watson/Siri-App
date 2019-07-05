@@ -322,7 +322,36 @@ function (_React$Component) {
       var name = target.name;
       console.log(value);
 
+      if (name === 'one') {
+        _this.talk('hmmm');
+      } else if (name === 'two') {
+        _this.talk('oooh');
+      } else if (name === 'three') {
+        _this.talk('really?');
+      } else if (name === 'three') {
+        _this.talk('oh');
+      } else if (name === 'four') {
+        _this.talk('finally');
+      } else if (name === 'five') {
+        _this.talk('mmm yes');
+      }
+
       _this.setState(_defineProperty({}, name, value));
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "talk", function () {
+      var message = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'hello keith';
+      var voices = window.speechSynthesis.getVoices(); // voices.map( voice => voice.name)
+      // console.log(voices)
+      // console.log('hello siri')
+
+      var speech = new SpeechSynthesisUtterance();
+      speech.text = message;
+      speech.volume = 1;
+      speech.rate = 1;
+      speech.pitch = 2; // speech.voice = voices[50]
+
+      window.speechSynthesis.speak(speech);
     });
 
     return _this;
@@ -441,8 +470,8 @@ function (_React$Component) {
       speech.text = 'hello ' + message;
       speech.volume = 1;
       speech.rate = 1;
-      speech.pitch = 3;
-      speech.voice = voices[3];
+      speech.pitch = 3; // speech.voice = voices[50]
+
       window.speechSynthesis.speak(speech);
     });
 
@@ -559,14 +588,14 @@ function (_React$Component) {
       var message = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'hello keith';
       var voices = window.speechSynthesis.getVoices(); // voices.map( voice => voice.name)
       // console.log(voices)
+      // console.log('hello siri')
 
-      console.log('hello siri');
       var speech = new SpeechSynthesisUtterance();
       speech.text = message;
       speech.volume = 1;
       speech.rate = 1;
-      speech.pitch = 3;
-      speech.voice = voices[3];
+      speech.pitch = 2; // speech.voice = voices[3]
+
       window.speechSynthesis.speak(speech);
     });
 

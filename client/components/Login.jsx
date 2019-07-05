@@ -22,7 +22,7 @@ class Login extends React.Component {
     speech.volume = 1
     speech.rate = 1
     speech.pitch = 3
-    speech.voice = voices[3]
+    // speech.voice = voices[50]
 
     window.speechSynthesis.speak(speech)
   }
