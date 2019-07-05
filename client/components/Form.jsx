@@ -37,11 +37,11 @@ class Form extends React.Component {
   render() {
     const { name, data } = this.props
     return (
-      <div>
+      <div className='container-2'>
         <form onSubmit={this.calcScore} >
           {data[0] && data.map(question => {
             return (
-              <div>
+              <div className='formStyle'>
                 <h1>{question.questions}</h1>
                 <select onChange={this.handleInputChange} name={question.name}>
                   {question.answers.map((answer, i) => {
@@ -54,7 +54,7 @@ class Form extends React.Component {
             )
           })}
           <br /><br />
-          <button type="submit">Check your Siri Compatibility</button>
+          <button type="submit" className="buttonForm">Check your Siri Compatibility</button>
         </form>
       </div>
     )

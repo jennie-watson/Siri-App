@@ -41,3 +41,27 @@
   background-size: cover;
   height: 1000px;
 }
+
+.container-2 {
+  background-image: url("./Bcg3.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 1000px;
+  color: white;
+  text-align: center;
+  font-size: 30px;
+  font-family: 'Barrio', cursive;
+}
+
+.container-3 {
+  background-image: url("./9.gif");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 1000px;
+}
+
+.VerdictMessage {
+  font-size: 50px;
+}

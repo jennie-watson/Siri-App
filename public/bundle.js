@@ -337,10 +337,14 @@ function (_React$Component) {
       var _this$props = this.props,
           name = _this$props.name,
           data = _this$props.data;
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "container-2"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         onSubmit: this.calcScore
       }, data[0] && data.map(function (question) {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, question.questions), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "formStyle"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, question.questions), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
           onChange: _this2.handleInputChange,
           name: question.name
         }, question.answers.map(function (answer, i) {
@@ -349,7 +353,8 @@ function (_React$Component) {
           }, answer);
         })));
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        type: "submit"
+        type: "submit",
+        className: "buttonForm"
       }, "Check your Siri Compatibility")));
     }
   }]);
@@ -560,11 +565,13 @@ function (_React$Component) {
     key: "render",
     value: function render() {
       console.log(this.props);
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "container-3"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "VerdictMessage"
       }, "Tamari, are you good enough to date Siri?"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Your score is ", this.props.score), this.response(this.props.score), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         onClick: this.handleClick
-      }, "Get Another Chance At Love"));
+      }, "Get Another Chance At Love")));
     }
   }]);
 
@@ -779,7 +786,7 @@ var reducer = function reducer() {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _actions_index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/index */ "./client/actions/index.js");
 
-var initialState = 'login';
+var initialState = 'verdict';
 /* harmony default export */ __webpack_exports__["default"] = (function () {
   var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
 
