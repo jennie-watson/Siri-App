@@ -22,14 +22,16 @@
   text-align: center;
   font-weight: 300;
   flex-grow: 0.3;
-  font-size: 65px;
-  color: skyblue;
+  font-size: 60px;
+  color: whitesmoke;
+  font-family: 'Press Start 2P', cursive;
 }
 
 .loginForm h2 {
   font-size: 50px;
   font-weight: 100;
   color: yellow;
+  font-family: 'Press Start 2P', cursive;
 }
 
 .container {
@@ -37,5 +39,5 @@
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  height: 950px;
+  height: 1000px;
 }
