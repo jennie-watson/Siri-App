@@ -90,7 +90,7 @@
 /*!*********************************!*\
   !*** ./client/actions/index.js ***!
   \*********************************/
-/*! exports provided: SHOW_ERROR, RECEIVE_POSTS, REQUEST_POSTS, SET_NAME, requestPosts, receivePosts, showError, fetchPosts, setName */
+/*! exports provided: SHOW_ERROR, RECEIVE_POSTS, REQUEST_POSTS, SET_NAME, SET_VIEW, requestPosts, receivePosts, showError, fetchPosts, setName, setView */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -99,11 +99,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_POSTS", function() { return RECEIVE_POSTS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "REQUEST_POSTS", function() { return REQUEST_POSTS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SET_NAME", function() { return SET_NAME; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SET_VIEW", function() { return SET_VIEW; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "requestPosts", function() { return requestPosts; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "receivePosts", function() { return receivePosts; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "showError", function() { return showError; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchPosts", function() { return fetchPosts; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setName", function() { return setName; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setView", function() { return setView; });
 /* harmony import */ var superagent__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! superagent */ "./node_modules/superagent/lib/client.js");
 /* harmony import */ var superagent__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(superagent__WEBPACK_IMPORTED_MODULE_0__);
 
@@ -111,6 +113,7 @@ var SHOW_ERROR = 'SHOW_ERROR';
 var RECEIVE_POSTS = 'RECEIVE_POSTS';
 var REQUEST_POSTS = 'REQUEST_POSTS';
 var SET_NAME = 'SET_NAME';
+var SET_VIEW = 'SET_VIEW';
 var requestPosts = function requestPosts() {
   return {
     type: REQUEST_POSTS
@@ -146,6 +149,12 @@ var setName = function setName(name) {
     name: name
   };
 };
+var setView = function setView(view) {
+  return {
+    type: SET_VIEW,
+    view: view
+  };
+};
 
 /***/ }),
 
@@ -160,15 +169,34 @@ var setName = function setName(name) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _Login__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Login */ "./client/components/Login.jsx");
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _Login__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Login */ "./client/components/Login.jsx");
 
 
 
-var App = function App() {
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Login__WEBPACK_IMPORTED_MODULE_1__["default"], null));
+
+var App = function App(_ref) {
+  var view = _ref.view;
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, displayView(view));
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (App);
+var displayView = function displayView(view) {
+  if (view === 'login') {
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Login__WEBPACK_IMPORTED_MODULE_2__["default"], null);
+  } else if (view === 'questions') {
+    return 'questions';
+  } else if (view === 'verdict') {
+    return 'verdict';
+  }
+};
+
+var mapStateToProps = function mapStateToProps(state) {
+  return {
+    view: state.view
+  };
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(mapStateToProps)(App));
 
 /***/ }),
 
@@ -241,6 +269,8 @@ function (_Component) {
       e.preventDefault();
 
       _this.props.dispatch(Object(_actions__WEBPACK_IMPORTED_MODULE_2__["setName"])(_this.state.name));
+
+      _this.props.dispatch(Object(_actions__WEBPACK_IMPORTED_MODULE_2__["setView"])('questions'));
     });
 
     return _this;
@@ -349,6 +379,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _subreddits__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./subreddits */ "./client/reducers/subreddits.js");
 /* harmony import */ var _waiting__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./waiting */ "./client/reducers/waiting.js");
 /* harmony import */ var _name__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./name */ "./client/reducers/name.js");
+/* harmony import */ var _view__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./view */ "./client/reducers/view.js");
+
 
 
 
@@ -358,7 +390,8 @@ __webpack_require__.r(__webpack_exports__);
   errorMessage: _error_message__WEBPACK_IMPORTED_MODULE_1__["default"],
   subreddits: _subreddits__WEBPACK_IMPORTED_MODULE_2__["default"],
   waiting: _waiting__WEBPACK_IMPORTED_MODULE_3__["default"],
-  name: _name__WEBPACK_IMPORTED_MODULE_4__["default"]
+  name: _name__WEBPACK_IMPORTED_MODULE_4__["default"],
+  view: _view__WEBPACK_IMPORTED_MODULE_6__["default"]
 }));
 
 /***/ }),
@@ -419,6 +452,36 @@ function subreddits() {
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (subreddits);
+
+/***/ }),
+
+/***/ "./client/reducers/view.js":
+/*!*********************************!*\
+  !*** ./client/reducers/view.js ***!
+  \*********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _actions_index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/index */ "./client/actions/index.js");
+
+var initialState = 'login';
+/* harmony default export */ __webpack_exports__["default"] = (function () {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
+
+  var _ref = arguments.length > 1 ? arguments[1] : undefined,
+      type = _ref.type,
+      view = _ref.view;
+
+  switch (type) {
+    case _actions_index__WEBPACK_IMPORTED_MODULE_0__["SET_VIEW"]:
+      return view;
+
+    default:
+      return state;
+  }
+});
 
 /***/ }),
 

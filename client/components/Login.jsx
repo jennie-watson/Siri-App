@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { setName } from '../actions'
+import { setName, setView } from '../actions'
 
 class Login extends Component {
   state={
@@ -16,6 +16,7 @@ class Login extends Component {
   handleSubmit = e => {
     e.preventDefault()
     this.props.dispatch(setName(this.state.name))
+    this.props.dispatch(setView('questions'))
   }
   render () {
     return (
