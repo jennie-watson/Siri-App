@@ -261,6 +261,8 @@ function (_React$Component) {
     key: "render",
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "container"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "loginForm"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Are you worthy of SIRI ???"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Try Your Luck!"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         onSubmit: this.handleSubmit
@@ -271,7 +273,7 @@ function (_React$Component) {
         value: this.state.name
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         type: "submit"
-      }, "submit")));
+      }, "submit"))));
     }
   }]);
 

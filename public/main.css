@@ -27,7 +27,15 @@
 }
 
 .loginForm h2 {
-  font-size: 30px;
+  font-size: 50px;
   font-weight: 100;
-  color: blueviolet;
+  color: yellow;
+}
+
+.container {
+  background-image: url("./5.gif");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 950px;
 }

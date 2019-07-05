@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 import { getData } from '../actions/index'
 
 class Form extends React.Component {
-
   state = {
     Question1: 0,
     Question2: 0,
