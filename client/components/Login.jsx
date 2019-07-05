@@ -2,27 +2,24 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { setName, setView } from '../actions'
 
-
-
 class Login extends React.Component {
   state = {
     name: ''
   }
 
   talk = (message = 'hello keith') => {
-
     const voices = window.speechSynthesis.getVoices()
 
-    // voices.map( voice => voice.name)
+    const eng = voices.find(voice => voice.lang === 'en-US')
     // console.log(voices)
 
-    console.log('hello siri')
+    // console.log('hello siri')
     const speech = new SpeechSynthesisUtterance()
-    speech.text = 'hello ' + message
+    speech.text = 'hello ' + message + 'nice to meet you'
     speech.volume = 1
     speech.rate = 1
-    speech.pitch = 3
-    // speech.voice = voices[50]
+    speech.pitch = 2
+    speech.voice = eng
 
     window.speechSynthesis.speak(speech)
   }
@@ -39,7 +36,7 @@ class Login extends React.Component {
     this.props.dispatch(setName(this.state.name))
     this.props.dispatch(setView('questions'))
   }
-  render() {
+  render () {
     return (
       <div className="container">
         <div className='loginForm'>

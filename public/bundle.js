@@ -346,16 +346,18 @@ function (_React$Component) {
 
     _defineProperty(_assertThisInitialized(_this), "talk", function () {
       var message = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'hello keith';
-      var voices = window.speechSynthesis.getVoices(); // voices.map( voice => voice.name)
-      // console.log(voices)
+      var voices = window.speechSynthesis.getVoices();
+      var eng = voices.find(function (voice) {
+        return voice.lang === 'en-US';
+      }); // console.log(voices)
       // console.log('hello siri')
 
       var speech = new SpeechSynthesisUtterance();
       speech.text = message;
       speech.volume = 1;
       speech.rate = 1;
-      speech.pitch = 2; // speech.voice = voices[50]
-
+      speech.pitch = 2;
+      speech.voice = eng;
       window.speechSynthesis.speak(speech);
     });
 
@@ -472,16 +474,18 @@ function (_React$Component) {
 
     _defineProperty(_assertThisInitialized(_this), "talk", function () {
       var message = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'hello keith';
-      var voices = window.speechSynthesis.getVoices(); // voices.map( voice => voice.name)
-      // console.log(voices)
+      var voices = window.speechSynthesis.getVoices();
+      var eng = voices.find(function (voice) {
+        return voice.lang === 'en-US';
+      }); // console.log(voices)
+      // console.log('hello siri')
 
-      console.log('hello siri');
       var speech = new SpeechSynthesisUtterance();
-      speech.text = 'hello ' + message;
+      speech.text = 'hello ' + message + 'nice to meet you';
       speech.volume = 1;
       speech.rate = 1;
-      speech.pitch = 3; // speech.voice = voices[50]
-
+      speech.pitch = 2;
+      speech.voice = eng;
       window.speechSynthesis.speak(speech);
     });
 
@@ -598,16 +602,18 @@ function (_React$Component) {
 
     _defineProperty(_assertThisInitialized(_this), "talk", function () {
       var message = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'hello keith';
-      var voices = window.speechSynthesis.getVoices(); // voices.map( voice => voice.name)
-      // console.log(voices)
+      var voices = window.speechSynthesis.getVoices();
+      var eng = voices.find(function (voice) {
+        return voice.lang === 'en-US';
+      }); // console.log(voices)
       // console.log('hello siri')
 
       var speech = new SpeechSynthesisUtterance();
       speech.text = message;
       speech.volume = 1;
       speech.rate = 1;
-      speech.pitch = 2; // speech.voice = voices[3]
-
+      speech.pitch = 2;
+      speech.voice = eng;
       window.speechSynthesis.speak(speech);
     });
 
@@ -624,12 +630,15 @@ function (_React$Component) {
     key: "render",
     value: function render() {
       console.log(this.props);
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "container-3"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "VerdictMessage"
-      }, this.props.name, " are you good enough to date Siri?"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Your score is ", this.props.score), this.response(this.props.score), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        onClick: this.handleClick
+      }, this.props.name, " Are you good enough to date Siri?"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "score"
+      }, "Your score is ", this.props.score), this.response(this.props.score), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        onClick: this.handleClick,
+        className: "button-2"
       }, "Get Another Chance At Love")));
     }
   }]);
@@ -823,7 +832,7 @@ function setScore() {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _actions_index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/index */ "./client/actions/index.js");
 
-var initialState = 'verdict';
+var initialState = 'login';
 /* harmony default export */ __webpack_exports__["default"] = (function () {
   var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
 
