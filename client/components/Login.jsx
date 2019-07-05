@@ -2,18 +2,27 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { setName, setView } from '../actions'
 
+
+
 class Login extends React.Component {
   state = {
     name: ''
   }
 
   talk = (message = 'hello keith') => {
+
+    const voices = window.speechSynthesis.getVoices()
+
+    // voices.map( voice => voice.name)
+    // console.log(voices)
+
     console.log('hello siri')
     const speech = new SpeechSynthesisUtterance()
-    speech.text = message
+    speech.text = 'hello ' + message
     speech.volume = 1
     speech.rate = 1
-    speech.pitch = 1
+    speech.pitch = 3
+    speech.voice = voices[3]
 
     window.speechSynthesis.speak(speech)
   }
@@ -26,7 +35,7 @@ class Login extends React.Component {
 
   handleSubmit = e => {
     e.preventDefault()
-    this.talk()
+    this.talk(this.state.name)
     this.props.dispatch(setName(this.state.name))
     this.props.dispatch(setView('questions'))
   }

@@ -433,12 +433,16 @@ function (_React$Component) {
 
     _defineProperty(_assertThisInitialized(_this), "talk", function () {
       var message = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'hello keith';
+      var voices = window.speechSynthesis.getVoices(); // voices.map( voice => voice.name)
+      // console.log(voices)
+
       console.log('hello siri');
       var speech = new SpeechSynthesisUtterance();
-      speech.text = message;
+      speech.text = 'hello ' + message;
       speech.volume = 1;
       speech.rate = 1;
-      speech.pitch = 1;
+      speech.pitch = 3;
+      speech.voice = voices[3];
       window.speechSynthesis.speak(speech);
     });
 
@@ -451,7 +455,7 @@ function (_React$Component) {
     _defineProperty(_assertThisInitialized(_this), "handleSubmit", function (e) {
       e.preventDefault();
 
-      _this.talk();
+      _this.talk(_this.state.name);
 
       _this.props.dispatch(Object(_actions__WEBPACK_IMPORTED_MODULE_2__["setName"])(_this.state.name));
 
