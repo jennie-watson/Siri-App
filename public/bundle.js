@@ -141,6 +141,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _Login__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Login */ "./client/components/Login.jsx");
+/* harmony import */ var _Form__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Form */ "./client/components/Form.jsx");
+
 
 
 
@@ -154,7 +156,7 @@ var displayView = function displayView(view) {
   if (view === 'login') {
     return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Login__WEBPACK_IMPORTED_MODULE_2__["default"], null);
   } else if (view === 'questions') {
-    return 'questions';
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Form__WEBPACK_IMPORTED_MODULE_3__["default"], null);
   } else if (view === 'verdict') {
     return 'verdict';
   }
@@ -167,6 +169,17 @@ var mapStateToProps = function mapStateToProps(state) {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(mapStateToProps)(App));
+
+/***/ }),
+
+/***/ "./client/components/Form.jsx":
+/*!************************************!*\
+  !*** ./client/components/Form.jsx ***!
+  \************************************/
+/*! exports provided: default */
+/***/ (function(module, exports) {
+
+throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: /home/eda/workspace/Week-6-Spongebob/client/components/Form.jsx: Unexpected token (71:1)\n\n\u001b[0m \u001b[90m 69 | \u001b[39m}\u001b[0m\n\u001b[0m \u001b[90m 70 | \u001b[39m\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 71 | \u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<\u001b[39m \u001b[33mHEAD\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m    | \u001b[39m \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 72 | \u001b[39m\u001b[36mexport\u001b[39m \u001b[36mdefault\u001b[39m connect()(\u001b[33mForm\u001b[39m)\u001b[0m\n\u001b[0m \u001b[90m 73 | \u001b[39m\u001b[33m===\u001b[39m\u001b[33m===\u001b[39m\u001b[33m=\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 74 | \u001b[39m\u001b[36mexport\u001b[39m \u001b[36mdefault\u001b[39m connect(mapStateToProps)(\u001b[33mForm\u001b[39m)\u001b[0m\n    at Object.raise (/home/eda/workspace/Week-6-Spongebob/node_modules/@babel/parser/lib/index.js:6344:17)\n    at Object.unexpected (/home/eda/workspace/Week-6-Spongebob/node_modules/@babel/parser/lib/index.js:7659:16)\n    at Object.jsxParseIdentifier (/home/eda/workspace/Week-6-Spongebob/node_modules/@babel/parser/lib/index.js:3377:12)\n    at Object.jsxParseNamespacedName (/home/eda/workspace/Week-6-Spongebob/node_modules/@babel/parser/lib/index.js:3387:23)\n    at Object.jsxParseElementName (/home/eda/workspace/Week-6-Spongebob/node_modules/@babel/parser/lib/index.js:3398:21)\n    at Object.jsxParseOpeningElementAt (/home/eda/workspace/Week-6-Spongebob/node_modules/@babel/parser/lib/index.js:3480:22)\n    at Object.jsxParseElementAt (/home/eda/workspace/Week-6-Spongebob/node_modules/@babel/parser/lib/index.js:3513:33)\n    at Object.jsxParseElement (/home/eda/workspace/Week-6-Spongebob/node_modules/@babel/parser/lib/index.js:3587:17)\n    at Object.parseExprAtom (/home/eda/workspace/Week-6-Spongebob/node_modules/@babel/parser/lib/index.js:3594:19)\n    at Object.parseExprSubscripts (/home/eda/workspace/Week-6-Spongebob/node_modules/@babel/parser/lib/index.js:8413:23)\n    at Object.parseMaybeUnary (/home/eda/workspace/Week-6-Spongebob/node_modules/@babel/parser/lib/index.js:8393:21)\n    at Object.parseExprOps (/home/eda/workspace/Week-6-Spongebob/node_modules/@babel/parser/lib/index.js:8280:23)\n    at Object.parseMaybeConditional (/home/eda/workspace/Week-6-Spongebob/node_modules/@babel/parser/lib/index.js:8253:23)\n    at Object.parseMaybeAssign (/home/eda/workspace/Week-6-Spongebob/node_modules/@babel/parser/lib/index.js:8200:21)\n    at Object.parseExpression (/home/eda/workspace/Week-6-Spongebob/node_modules/@babel/parser/lib/index.js:8148:23)\n    at Object.parseStatementContent (/home/eda/workspace/Week-6-Spongebob/node_modules/@babel/parser/lib/index.js:9917:23)\n    at Object.parseStatement (/home/eda/workspace/Week-6-Spongebob/node_modules/@babel/parser/lib/index.js:9788:17)\n    at Object.parseBlockOrModuleBlockBody (/home/eda/workspace/Week-6-Spongebob/node_modules/@babel/parser/lib/index.js:10364:25)\n    at Object.parseBlockBody (/home/eda/workspace/Week-6-Spongebob/node_modules/@babel/parser/lib/index.js:10351:10)\n    at Object.parseTopLevel (/home/eda/workspace/Week-6-Spongebob/node_modules/@babel/parser/lib/index.js:9717:10)\n    at Object.parse (/home/eda/workspace/Week-6-Spongebob/node_modules/@babel/parser/lib/index.js:11233:17)\n    at parse (/home/eda/workspace/Week-6-Spongebob/node_modules/@babel/parser/lib/index.js:11269:38)\n    at parser (/home/eda/workspace/Week-6-Spongebob/node_modules/@babel/core/lib/transformation/normalize-file.js:170:34)\n    at normalizeFile (/home/eda/workspace/Week-6-Spongebob/node_modules/@babel/core/lib/transformation/normalize-file.js:138:11)\n    at runSync (/home/eda/workspace/Week-6-Spongebob/node_modules/@babel/core/lib/transformation/index.js:44:43)\n    at runAsync (/home/eda/workspace/Week-6-Spongebob/node_modules/@babel/core/lib/transformation/index.js:35:14)\n    at process.nextTick (/home/eda/workspace/Week-6-Spongebob/node_modules/@babel/core/lib/transform.js:34:34)\n    at process._tickCallback (internal/process/next_tick.js:61:11)");
 
 /***/ }),
 
@@ -324,116 +337,9 @@ document.addEventListener('DOMContentLoaded', function () {
   !*** ./client/reducers/index.js ***!
   \**********************************/
 /*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports) {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
-/* harmony import */ var _verdict__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./verdict */ "./client/reducers/verdict.js");
-/* harmony import */ var _name__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./name */ "./client/reducers/name.js");
-/* harmony import */ var _view__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./view */ "./client/reducers/view.js");
-
-
-
-
-/* harmony default export */ __webpack_exports__["default"] = (Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])({
-  verdict: _verdict__WEBPACK_IMPORTED_MODULE_1__["default"],
-  name: _name__WEBPACK_IMPORTED_MODULE_2__["default"],
-  view: _view__WEBPACK_IMPORTED_MODULE_3__["default"]
-}));
-
-/***/ }),
-
-/***/ "./client/reducers/name.js":
-/*!*********************************!*\
-  !*** ./client/reducers/name.js ***!
-  \*********************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions */ "./client/actions/index.js");
-
-var initialState = 'user undefined';
-/* harmony default export */ __webpack_exports__["default"] = (function () {
-  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
-
-  var _ref = arguments.length > 1 ? arguments[1] : undefined,
-      type = _ref.type,
-      name = _ref.name;
-
-  switch (type) {
-    case _actions__WEBPACK_IMPORTED_MODULE_0__["SET_NAME"]:
-      return name;
-
-    default:
-      return state;
-  }
-});
-
-/***/ }),
-
-/***/ "./client/reducers/verdict.js":
-/*!************************************!*\
-  !*** ./client/reducers/verdict.js ***!
-  \************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions */ "./client/actions/index.js");
-
-var initialState = 13;
-
-var reducer = function reducer() {
-  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
-
-  var _ref = arguments.length > 1 ? arguments[1] : undefined,
-      type = _ref.type,
-      score = _ref.score;
-
-  switch (type) {
-    case _actions__WEBPACK_IMPORTED_MODULE_0__["GET_SCORE"]:
-      return score;
-
-    default:
-      return state;
-  }
-};
-
-/* harmony default export */ __webpack_exports__["default"] = (reducer);
-
-/***/ }),
-
-/***/ "./client/reducers/view.js":
-/*!*********************************!*\
-  !*** ./client/reducers/view.js ***!
-  \*********************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _actions_index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/index */ "./client/actions/index.js");
-
-var initialState = 'login';
-/* harmony default export */ __webpack_exports__["default"] = (function () {
-  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
-
-  var _ref = arguments.length > 1 ? arguments[1] : undefined,
-      type = _ref.type,
-      view = _ref.view;
-
-  switch (type) {
-    case _actions_index__WEBPACK_IMPORTED_MODULE_0__["SET_VIEW"]:
-      return view;
-
-    default:
-      return state;
-  }
-});
+throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: /home/eda/workspace/Week-6-Spongebob/client/reducers/index.js: Unexpected token (3:0)\n\n\u001b[0m \u001b[90m 1 | \u001b[39m\u001b[36mimport\u001b[39m { combineReducers } from \u001b[32m'redux'\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 2 | \u001b[39m\u001b[36mimport\u001b[39m verdict from \u001b[32m'./verdict'\u001b[39m\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 3 | \u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<\u001b[39m \u001b[33mHEAD\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m   | \u001b[39m\u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 4 | \u001b[39m\u001b[33m===\u001b[39m\u001b[33m===\u001b[39m\u001b[33m=\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 5 | \u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 6 | \u001b[39m\u001b[36mimport\u001b[39m errorMessage from \u001b[32m'./error-message'\u001b[39m\u001b[0m\n    at Object.raise (/home/eda/workspace/Week-6-Spongebob/node_modules/@babel/parser/lib/index.js:6344:17)\n    at Object.unexpected (/home/eda/workspace/Week-6-Spongebob/node_modules/@babel/parser/lib/index.js:7659:16)\n    at Object.parseExprAtom (/home/eda/workspace/Week-6-Spongebob/node_modules/@babel/parser/lib/index.js:8828:20)\n    at Object.parseExprAtom (/home/eda/workspace/Week-6-Spongebob/node_modules/@babel/parser/lib/index.js:3599:20)\n    at Object.parseExprSubscripts (/home/eda/workspace/Week-6-Spongebob/node_modules/@babel/parser/lib/index.js:8413:23)\n    at Object.parseMaybeUnary (/home/eda/workspace/Week-6-Spongebob/node_modules/@babel/parser/lib/index.js:8393:21)\n    at Object.parseExprOps (/home/eda/workspace/Week-6-Spongebob/node_modules/@babel/parser/lib/index.js:8280:23)\n    at Object.parseMaybeConditional (/home/eda/workspace/Week-6-Spongebob/node_modules/@babel/parser/lib/index.js:8253:23)\n    at Object.parseMaybeAssign (/home/eda/workspace/Week-6-Spongebob/node_modules/@babel/parser/lib/index.js:8200:21)\n    at Object.parseExpression (/home/eda/workspace/Week-6-Spongebob/node_modules/@babel/parser/lib/index.js:8148:23)\n    at Object.parseStatementContent (/home/eda/workspace/Week-6-Spongebob/node_modules/@babel/parser/lib/index.js:9917:23)\n    at Object.parseStatement (/home/eda/workspace/Week-6-Spongebob/node_modules/@babel/parser/lib/index.js:9788:17)\n    at Object.parseBlockOrModuleBlockBody (/home/eda/workspace/Week-6-Spongebob/node_modules/@babel/parser/lib/index.js:10364:25)\n    at Object.parseBlockBody (/home/eda/workspace/Week-6-Spongebob/node_modules/@babel/parser/lib/index.js:10351:10)\n    at Object.parseTopLevel (/home/eda/workspace/Week-6-Spongebob/node_modules/@babel/parser/lib/index.js:9717:10)\n    at Object.parse (/home/eda/workspace/Week-6-Spongebob/node_modules/@babel/parser/lib/index.js:11233:17)\n    at parse (/home/eda/workspace/Week-6-Spongebob/node_modules/@babel/parser/lib/index.js:11269:38)\n    at parser (/home/eda/workspace/Week-6-Spongebob/node_modules/@babel/core/lib/transformation/normalize-file.js:170:34)\n    at normalizeFile (/home/eda/workspace/Week-6-Spongebob/node_modules/@babel/core/lib/transformation/normalize-file.js:138:11)\n    at runSync (/home/eda/workspace/Week-6-Spongebob/node_modules/@babel/core/lib/transformation/index.js:44:43)\n    at runAsync (/home/eda/workspace/Week-6-Spongebob/node_modules/@babel/core/lib/transformation/index.js:35:14)\n    at process.nextTick (/home/eda/workspace/Week-6-Spongebob/node_modules/@babel/core/lib/transform.js:34:34)\n    at process._tickCallback (internal/process/next_tick.js:61:11)");
 
 /***/ }),
 

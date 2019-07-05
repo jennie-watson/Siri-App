@@ -1,33 +1,60 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { getData } from '../actions/index'
+import { getData, setScore } from '../actions/getData'
 
 class Form extends React.Component {
   state = {
-    Question1: 0,
-    Question2: 0,
-    Question3: 0,
-    Question4: 0,
-    Question5: 0
+    one: 0,
+    two: 0,
+    three: 0,
+    four: 0,
+    five: 0
   }
+
+  calcScore = (e) => {
+    e.preventDefault()
+    const { one, two, three, four, five } = this.state
+    const total = Number(one) + Number(two) + Number(three) + Number(four) + Number(five)
+    this.props.dispatch(setScore(total))
+  }
+
+  componentDidMount() {
+    this.props.dispatch(getData())
+  }
+
+  handleInputChange = (event) => {
+    const target = event.target;
+    const value = target.value;
+    const name = target.name
+    console.log(value)
+
+
+    this.setState({
+      [name]: value
+    })
+  }
+
   render() {
     const { name, data } = this.props
     return (
       <div>
-        <form>
-          {data.map(question => {
+        <form onSubmit={this.calcScore} >
+          {data[0] && data.map(question => {
             return (
-              <select name={question.id}>
-                {question.answers.map((answer, i => {
-                  return (
-                    <option value={question.score[i]}>{answer}</option>
-                  )
-                }))}
-              </select>
+              <div>
+                <h1>{question.questions}</h1>
+                <select onChange={this.handleInputChange} name={question.name}>
+                  {question.answers.map((answer, i) => {
+                    return (
+                      <option value={question.score[i]}>{answer}</option>
+                    )
+                  })}
+                </select>
+              </div>
             )
           })}
           <br /><br />
-          <input type="submit" />
+          <button type="submit">Check your Siri Compatibility</button>
         </form>
       </div>
     )
@@ -41,4 +68,8 @@ const mapStateToProps = state => {
   }
 }
 
+<<<<<<< HEAD
 export default connect()(Form)
+=======
+export default connect(mapStateToProps)(Form)
+>>>>>>> d45e7b3bf8461e684374fa213b8e1787c79f93a0
