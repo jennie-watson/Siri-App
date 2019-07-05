@@ -241,9 +241,130 @@ var mapStateToProps = function mapStateToProps(state) {
   !*** ./client/components/Form.jsx ***!
   \************************************/
 /*! exports provided: default */
-/***/ (function(module, exports) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: /home/eda/workspace/Week-6-Spongebob/client/components/Form.jsx: Unexpected token (71:1)\n\n\u001b[0m \u001b[90m 69 | \u001b[39m}\u001b[0m\n\u001b[0m \u001b[90m 70 | \u001b[39m\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 71 | \u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<\u001b[39m \u001b[33mHEAD\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m    | \u001b[39m \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 72 | \u001b[39m\u001b[36mexport\u001b[39m \u001b[36mdefault\u001b[39m connect()(\u001b[33mForm\u001b[39m)\u001b[0m\n\u001b[0m \u001b[90m 73 | \u001b[39m\u001b[33m===\u001b[39m\u001b[33m===\u001b[39m\u001b[33m=\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 74 | \u001b[39m\u001b[36mexport\u001b[39m \u001b[36mdefault\u001b[39m connect(mapStateToProps)(\u001b[33mForm\u001b[39m)\u001b[0m\n    at Object.raise (/home/eda/workspace/Week-6-Spongebob/node_modules/@babel/parser/lib/index.js:6344:17)\n    at Object.unexpected (/home/eda/workspace/Week-6-Spongebob/node_modules/@babel/parser/lib/index.js:7659:16)\n    at Object.jsxParseIdentifier (/home/eda/workspace/Week-6-Spongebob/node_modules/@babel/parser/lib/index.js:3377:12)\n    at Object.jsxParseNamespacedName (/home/eda/workspace/Week-6-Spongebob/node_modules/@babel/parser/lib/index.js:3387:23)\n    at Object.jsxParseElementName (/home/eda/workspace/Week-6-Spongebob/node_modules/@babel/parser/lib/index.js:3398:21)\n    at Object.jsxParseOpeningElementAt (/home/eda/workspace/Week-6-Spongebob/node_modules/@babel/parser/lib/index.js:3480:22)\n    at Object.jsxParseElementAt (/home/eda/workspace/Week-6-Spongebob/node_modules/@babel/parser/lib/index.js:3513:33)\n    at Object.jsxParseElement (/home/eda/workspace/Week-6-Spongebob/node_modules/@babel/parser/lib/index.js:3587:17)\n    at Object.parseExprAtom (/home/eda/workspace/Week-6-Spongebob/node_modules/@babel/parser/lib/index.js:3594:19)\n    at Object.parseExprSubscripts (/home/eda/workspace/Week-6-Spongebob/node_modules/@babel/parser/lib/index.js:8413:23)\n    at Object.parseMaybeUnary (/home/eda/workspace/Week-6-Spongebob/node_modules/@babel/parser/lib/index.js:8393:21)\n    at Object.parseExprOps (/home/eda/workspace/Week-6-Spongebob/node_modules/@babel/parser/lib/index.js:8280:23)\n    at Object.parseMaybeConditional (/home/eda/workspace/Week-6-Spongebob/node_modules/@babel/parser/lib/index.js:8253:23)\n    at Object.parseMaybeAssign (/home/eda/workspace/Week-6-Spongebob/node_modules/@babel/parser/lib/index.js:8200:21)\n    at Object.parseExpression (/home/eda/workspace/Week-6-Spongebob/node_modules/@babel/parser/lib/index.js:8148:23)\n    at Object.parseStatementContent (/home/eda/workspace/Week-6-Spongebob/node_modules/@babel/parser/lib/index.js:9917:23)\n    at Object.parseStatement (/home/eda/workspace/Week-6-Spongebob/node_modules/@babel/parser/lib/index.js:9788:17)\n    at Object.parseBlockOrModuleBlockBody (/home/eda/workspace/Week-6-Spongebob/node_modules/@babel/parser/lib/index.js:10364:25)\n    at Object.parseBlockBody (/home/eda/workspace/Week-6-Spongebob/node_modules/@babel/parser/lib/index.js:10351:10)\n    at Object.parseTopLevel (/home/eda/workspace/Week-6-Spongebob/node_modules/@babel/parser/lib/index.js:9717:10)\n    at Object.parse (/home/eda/workspace/Week-6-Spongebob/node_modules/@babel/parser/lib/index.js:11233:17)\n    at parse (/home/eda/workspace/Week-6-Spongebob/node_modules/@babel/parser/lib/index.js:11269:38)\n    at parser (/home/eda/workspace/Week-6-Spongebob/node_modules/@babel/core/lib/transformation/normalize-file.js:170:34)\n    at normalizeFile (/home/eda/workspace/Week-6-Spongebob/node_modules/@babel/core/lib/transformation/normalize-file.js:138:11)\n    at runSync (/home/eda/workspace/Week-6-Spongebob/node_modules/@babel/core/lib/transformation/index.js:44:43)\n    at runAsync (/home/eda/workspace/Week-6-Spongebob/node_modules/@babel/core/lib/transformation/index.js:35:14)\n    at process.nextTick (/home/eda/workspace/Week-6-Spongebob/node_modules/@babel/core/lib/transform.js:34:34)\n    at process._tickCallback (internal/process/next_tick.js:61:11)");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _actions_getData__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../actions/getData */ "./client/actions/getData.js");
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+
+
+var Form =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(Form, _React$Component);
+
+  function Form() {
+    var _getPrototypeOf2;
+
+    var _this;
+
+    _classCallCheck(this, Form);
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(Form)).call.apply(_getPrototypeOf2, [this].concat(args)));
+
+    _defineProperty(_assertThisInitialized(_this), "state", {
+      one: 0,
+      two: 0,
+      three: 0,
+      four: 0,
+      five: 0
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "calcScore", function (e) {
+      e.preventDefault();
+      var _this$state = _this.state,
+          one = _this$state.one,
+          two = _this$state.two,
+          three = _this$state.three,
+          four = _this$state.four,
+          five = _this$state.five;
+      var total = Number(one) + Number(two) + Number(three) + Number(four) + Number(five);
+
+      _this.props.dispatch(Object(_actions_getData__WEBPACK_IMPORTED_MODULE_2__["setScore"])(total));
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "handleInputChange", function (event) {
+      var target = event.target;
+      var value = target.value;
+      var name = target.name;
+      console.log(value);
+
+      _this.setState(_defineProperty({}, name, value));
+    });
+
+    return _this;
+  }
+
+  _createClass(Form, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.props.dispatch(Object(_actions_getData__WEBPACK_IMPORTED_MODULE_2__["getData"])());
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _this2 = this;
+
+      var _this$props = this.props,
+          name = _this$props.name,
+          data = _this$props.data;
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+        onSubmit: this.calcScore
+      }, data[0] && data.map(function (question) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, question.questions), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+          onChange: _this2.handleInputChange,
+          name: question.name
+        }, question.answers.map(function (answer, i) {
+          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+            value: question.score[i]
+          }, answer);
+        })));
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        type: "submit"
+      }, "Check your Siri Compatibility")));
+    }
+  }]);
+
+  return Form;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+
+var mapStateToProps = function mapStateToProps(state) {
+  return {
+    data: state.data,
+    name: state.name
+  };
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(mapStateToProps)(Form));
 
 /***/ }),
 

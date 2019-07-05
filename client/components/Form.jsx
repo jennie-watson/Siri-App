@@ -68,8 +68,4 @@ const mapStateToProps = state => {
   }
 }
 
-<<<<<<< HEAD
-export default connect()(Form)
-=======
 export default connect(mapStateToProps)(Form)
->>>>>>> d45e7b3bf8461e684374fa213b8e1787c79f93a0
