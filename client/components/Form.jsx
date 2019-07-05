@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { getData, setScore } from '../actions/getData'
+import { setView } from '../actions'
 
 class Form extends React.Component {
 
@@ -17,6 +18,7 @@ class Form extends React.Component {
     const { one, two, three, four, five } = this.state
     const total = Number(one) + Number(two) + Number(three) + Number(four) + Number(five)
     this.props.dispatch(setScore(total))
+    this.props.dispatch(setView('verdict'))
   }
 
   componentDidMount() {
@@ -45,6 +47,7 @@ class Form extends React.Component {
               <div>
                 <h1>{question.questions}</h1>
                 <select onChange={this.handleInputChange} name={question.name}>
+                <option>Please select an option...</option>
                   {question.answers.map((answer, i) => {
                     return (
                       <option value={question.score[i]}>{answer}</option>

@@ -203,19 +203,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _Login__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Login */ "./client/components/Login.jsx");
-<<<<<<< HEAD
 /* harmony import */ var _Verdict__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Verdict */ "./client/components/Verdict.jsx");
 /* harmony import */ var _Form__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Form */ "./client/components/Form.jsx");
 
 
-=======
-<<<<<<< HEAD
-/* harmony import */ var _Form__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Form */ "./client/components/Form.jsx");
-
-=======
->>>>>>> fe8f5793a7d9219da9ec4f06576ac674079f0578
->>>>>>> f2fb93564ab843aa96b4bdfcaf076d216c464786
->>>>>>> d45e7b3bf8461e684374fa213b8e1787c79f93a0
 
 
 
@@ -229,11 +220,7 @@ var displayView = function displayView(view) {
   if (view === 'login') {
     return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Login__WEBPACK_IMPORTED_MODULE_2__["default"], null);
   } else if (view === 'questions') {
-<<<<<<< HEAD
     return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Form__WEBPACK_IMPORTED_MODULE_4__["default"], null);
-=======
-    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Form__WEBPACK_IMPORTED_MODULE_3__["default"], null);
->>>>>>> d45e7b3bf8461e684374fa213b8e1787c79f93a0
   } else if (view === 'verdict') {
     return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Verdict__WEBPACK_IMPORTED_MODULE_3__["default"], null);
   }
@@ -261,11 +248,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-<<<<<<< HEAD
-/* harmony import */ var _actions_index__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../actions/index */ "./client/actions/index.js");
-=======
 /* harmony import */ var _actions_getData__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../actions/getData */ "./client/actions/getData.js");
->>>>>>> d45e7b3bf8461e684374fa213b8e1787c79f93a0
+/* harmony import */ var _actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../actions */ "./client/actions/index.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -290,6 +274,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
+
 var Form =
 /*#__PURE__*/
 function (_React$Component) {
@@ -309,13 +294,6 @@ function (_React$Component) {
     _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(Form)).call.apply(_getPrototypeOf2, [this].concat(args)));
 
     _defineProperty(_assertThisInitialized(_this), "state", {
-<<<<<<< HEAD
-      Question1: 0,
-      Question2: 0,
-      Question3: 0,
-      Question4: 0,
-      Question5: 0
-=======
       one: 0,
       two: 0,
       three: 0,
@@ -334,6 +312,8 @@ function (_React$Component) {
       var total = Number(one) + Number(two) + Number(three) + Number(four) + Number(five);
 
       _this.props.dispatch(Object(_actions_getData__WEBPACK_IMPORTED_MODULE_2__["setScore"])(total));
+
+      _this.props.dispatch(Object(_actions__WEBPACK_IMPORTED_MODULE_3__["setView"])('verdict'));
     });
 
     _defineProperty(_assertThisInitialized(_this), "handleInputChange", function (event) {
@@ -343,24 +323,12 @@ function (_React$Component) {
       console.log(value);
 
       _this.setState(_defineProperty({}, name, value));
->>>>>>> d45e7b3bf8461e684374fa213b8e1787c79f93a0
     });
 
     return _this;
   }
 
   _createClass(Form, [{
-<<<<<<< HEAD
-    key: "render",
-    value: function render() {
-      var _this$props = this.props,
-          name = _this$props.name,
-          data = _this$props.data;
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", null, data.map(function (question) {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
-          name: question.id
-        }, question.answers.map((answer, function (i) {
-=======
     key: "componentDidMount",
     value: function componentDidMount() {
       this.props.dispatch(Object(_actions_getData__WEBPACK_IMPORTED_MODULE_2__["getData"])());
@@ -379,21 +347,14 @@ function (_React$Component) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, question.questions), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
           onChange: _this2.handleInputChange,
           name: question.name
-        }, question.answers.map(function (answer, i) {
->>>>>>> d45e7b3bf8461e684374fa213b8e1787c79f93a0
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", null, "Please select an option..."), question.answers.map(function (answer, i) {
           return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
             value: question.score[i]
           }, answer);
         })));
-<<<<<<< HEAD
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        type: "submit"
-      })));
-=======
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         type: "submit"
       }, "Check your Siri Compatibility")));
->>>>>>> d45e7b3bf8461e684374fa213b8e1787c79f93a0
     }
   }]);
 
@@ -407,11 +368,7 @@ var mapStateToProps = function mapStateToProps(state) {
   };
 };
 
-<<<<<<< HEAD
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])()(Form));
-=======
 /* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(mapStateToProps)(Form));
->>>>>>> d45e7b3bf8461e684374fa213b8e1787c79f93a0
 
 /***/ }),
 
@@ -618,7 +575,7 @@ function (_React$Component) {
 
 var mapStateToProps = function mapStateToProps(state) {
   return {
-    score: state.verdict
+    score: state.score
   };
 };
 
@@ -661,7 +618,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
 /***/ }),
 
-<<<<<<< HEAD
 /***/ "./client/reducers/data.js":
 /*!*********************************!*\
   !*** ./client/reducers/data.js ***!
@@ -691,37 +647,6 @@ function getData() {
 
 /***/ }),
 
-/***/ "./client/reducers/error-message.js":
-/*!******************************************!*\
-  !*** ./client/reducers/error-message.js ***!
-  \******************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions */ "./client/actions/index.js");
-
-
-function errorMessage() {
-  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
-  var action = arguments.length > 1 ? arguments[1] : undefined;
-
-  switch (action.type) {
-    case _actions__WEBPACK_IMPORTED_MODULE_0__["SHOW_ERROR"]:
-      return action.errorMessage;
-
-    default:
-      return state;
-  }
-}
-
-/* harmony default export */ __webpack_exports__["default"] = (errorMessage);
-
-/***/ }),
-
-=======
->>>>>>> f2fb93564ab843aa96b4bdfcaf076d216c464786
 /***/ "./client/reducers/index.js":
 /*!**********************************!*\
   !*** ./client/reducers/index.js ***!
@@ -732,55 +657,20 @@ function errorMessage() {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
-/* harmony import */ var _verdict__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./verdict */ "./client/reducers/verdict.js");
-<<<<<<< HEAD
-/* harmony import */ var _name__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./name */ "./client/reducers/name.js");
-/* harmony import */ var _view__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./view */ "./client/reducers/view.js");
-=======
+/* harmony import */ var _name__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./name */ "./client/reducers/name.js");
+/* harmony import */ var _view__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./view */ "./client/reducers/view.js");
+/* harmony import */ var _score__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./score */ "./client/reducers/score.js");
+/* harmony import */ var _data__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./data */ "./client/reducers/data.js");
 
-
-/* harmony default export */ __webpack_exports__["default"] = (Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])({
-  verdict: _verdict__WEBPACK_IMPORTED_MODULE_1__["default"]
-=======
-/* harmony import */ var _error_message__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./error-message */ "./client/reducers/error-message.js");
-/* harmony import */ var _data__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./data */ "./client/reducers/data.js");
-/* harmony import */ var _waiting__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./waiting */ "./client/reducers/waiting.js");
-/* harmony import */ var _name__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./name */ "./client/reducers/name.js");
-/* harmony import */ var _view__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./view */ "./client/reducers/view.js");
-<<<<<<< HEAD
-/* harmony import */ var _score__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./score */ "./client/reducers/score.js");
-
-=======
->>>>>>> f2fb93564ab843aa96b4bdfcaf076d216c464786
-
-
->>>>>>> d45e7b3bf8461e684374fa213b8e1787c79f93a0
 
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])({
-<<<<<<< HEAD
-  verdict: _verdict__WEBPACK_IMPORTED_MODULE_1__["default"],
-  name: _name__WEBPACK_IMPORTED_MODULE_2__["default"],
-  view: _view__WEBPACK_IMPORTED_MODULE_3__["default"]
-=======
-  errorMessage: _error_message__WEBPACK_IMPORTED_MODULE_1__["default"],
-  data: _data__WEBPACK_IMPORTED_MODULE_2__["default"],
-  waiting: _waiting__WEBPACK_IMPORTED_MODULE_3__["default"],
-  name: _name__WEBPACK_IMPORTED_MODULE_4__["default"],
-<<<<<<< HEAD
-  view: _view__WEBPACK_IMPORTED_MODULE_5__["default"],
-  score: _score__WEBPACK_IMPORTED_MODULE_6__["default"]
-=======
-<<<<<<< HEAD
-  view: _view__WEBPACK_IMPORTED_MODULE_5__["default"]
-=======
-  view: _view__WEBPACK_IMPORTED_MODULE_6__["default"]
->>>>>>> fe8f5793a7d9219da9ec4f06576ac674079f0578
->>>>>>> c1bb566991c58e56e0d75de4437295183b221441
->>>>>>> f2fb93564ab843aa96b4bdfcaf076d216c464786
->>>>>>> d45e7b3bf8461e684374fa213b8e1787c79f93a0
+  data: _data__WEBPACK_IMPORTED_MODULE_4__["default"],
+  name: _name__WEBPACK_IMPORTED_MODULE_1__["default"],
+  score: _score__WEBPACK_IMPORTED_MODULE_3__["default"],
+  view: _view__WEBPACK_IMPORTED_MODULE_2__["default"]
 }));
 
 /***/ }),
@@ -815,17 +705,10 @@ var initialState = 'user undefined';
 
 /***/ }),
 
-<<<<<<< HEAD
-/***/ "./client/reducers/verdict.js":
-/*!************************************!*\
-  !*** ./client/reducers/verdict.js ***!
-  \************************************/
-=======
 /***/ "./client/reducers/score.js":
 /*!**********************************!*\
   !*** ./client/reducers/score.js ***!
   \**********************************/
->>>>>>> d45e7b3bf8461e684374fa213b8e1787c79f93a0
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -833,20 +716,7 @@ var initialState = 'user undefined';
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _actions_getData__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/getData */ "./client/actions/getData.js");
 
-var initialState = 13;
 
-<<<<<<< HEAD
-var reducer = function reducer() {
-  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
-
-  var _ref = arguments.length > 1 ? arguments[1] : undefined,
-      type = _ref.type,
-      score = _ref.score;
-
-  switch (type) {
-    case _actions__WEBPACK_IMPORTED_MODULE_0__["GET_SCORE"]:
-      return score;
-=======
 function setScore() {
   var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
   var action = arguments.length > 1 ? arguments[1] : undefined;
@@ -854,18 +724,13 @@ function setScore() {
   switch (action.type) {
     case _actions_getData__WEBPACK_IMPORTED_MODULE_0__["SCORE"]:
       return action.score;
->>>>>>> d45e7b3bf8461e684374fa213b8e1787c79f93a0
 
     default:
       return state;
   }
-};
+}
 
-<<<<<<< HEAD
-/* harmony default export */ __webpack_exports__["default"] = (reducer);
-=======
 /* harmony default export */ __webpack_exports__["default"] = (setScore);
->>>>>>> d45e7b3bf8461e684374fa213b8e1787c79f93a0
 
 /***/ }),
 
