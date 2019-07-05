@@ -90,76 +90,20 @@
 /*!*********************************!*\
   !*** ./client/actions/index.js ***!
   \*********************************/
-<<<<<<< HEAD
-/*! exports provided: GET_SCORE, getScore */
-=======
-/*! exports provided: SHOW_ERROR, RECEIVE_POSTS, REQUEST_POSTS, SET_NAME, SET_VIEW, requestPosts, receivePosts, showError, fetchPosts, setName, setView */
->>>>>>> fe8f5793a7d9219da9ec4f06576ac674079f0578
+/*! exports provided: SET_NAME, SET_VIEW, setName, setView */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-<<<<<<< HEAD
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GET_SCORE", function() { return GET_SCORE; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getScore", function() { return getScore; });
-/* harmony import */ var superagent__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! superagent */ "./node_modules/superagent/lib/client.js");
-/* harmony import */ var superagent__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(superagent__WEBPACK_IMPORTED_MODULE_0__);
-
-var GET_SCORE = 'GET_SCORE';
-var getScore = function getScore(score) {
-=======
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SHOW_ERROR", function() { return SHOW_ERROR; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_POSTS", function() { return RECEIVE_POSTS; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "REQUEST_POSTS", function() { return REQUEST_POSTS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SET_NAME", function() { return SET_NAME; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SET_VIEW", function() { return SET_VIEW; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "requestPosts", function() { return requestPosts; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "receivePosts", function() { return receivePosts; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "showError", function() { return showError; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchPosts", function() { return fetchPosts; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setName", function() { return setName; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setView", function() { return setView; });
 /* harmony import */ var superagent__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! superagent */ "./node_modules/superagent/lib/client.js");
 /* harmony import */ var superagent__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(superagent__WEBPACK_IMPORTED_MODULE_0__);
 
-var SHOW_ERROR = 'SHOW_ERROR';
-var RECEIVE_POSTS = 'RECEIVE_POSTS';
-var REQUEST_POSTS = 'REQUEST_POSTS';
 var SET_NAME = 'SET_NAME';
 var SET_VIEW = 'SET_VIEW';
-var requestPosts = function requestPosts() {
->>>>>>> fe8f5793a7d9219da9ec4f06576ac674079f0578
-  return {
-    type: GET_SCORE,
-    score: score
-  };
-};
-<<<<<<< HEAD
-=======
-var receivePosts = function receivePosts(posts) {
-  return {
-    type: RECEIVE_POSTS,
-    posts: posts.map(function (post) {
-      return post.data;
-    })
-  };
-};
-var showError = function showError(errorMessage) {
-  return {
-    type: SHOW_ERROR,
-    errorMessage: errorMessage
-  };
-};
-function fetchPosts(subreddit) {
-  return function (dispatch) {
-    dispatch(requestPosts());
-    return superagent__WEBPACK_IMPORTED_MODULE_0___default.a.get("/api/v1/reddit/subreddit/".concat(subreddit)).then(function (res) {
-      dispatch(receivePosts(res.body));
-    })["catch"](function (err) {
-      dispatch(showError(err.message));
-    });
-  };
-}
 var setName = function setName(name) {
   return {
     type: SET_NAME,
@@ -172,7 +116,6 @@ var setView = function setView(view) {
     view: view
   };
 };
->>>>>>> fe8f5793a7d9219da9ec4f06576ac674079f0578
 
 /***/ }),
 
@@ -187,33 +130,17 @@ var setView = function setView(view) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-<<<<<<< HEAD
-/* harmony import */ var _ErrorMessage__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ErrorMessage */ "./client/components/ErrorMessage.jsx");
-/* harmony import */ var _LoadSubreddit__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./LoadSubreddit */ "./client/components/LoadSubreddit.jsx");
-/* harmony import */ var _SubredditList__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./SubredditList */ "./client/components/SubredditList.jsx");
-/* harmony import */ var _WaitIndicator__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./WaitIndicator */ "./client/components/WaitIndicator.jsx");
-/* harmony import */ var _Verdict__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Verdict */ "./client/components/Verdict.jsx");
-
-
-
-=======
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _Login__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Login */ "./client/components/Login.jsx");
->>>>>>> fe8f5793a7d9219da9ec4f06576ac674079f0578
+/* harmony import */ var _Verdict__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Verdict */ "./client/components/Verdict.jsx");
 
 
 
 
-<<<<<<< HEAD
-var App = function App() {
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "app"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Verdict__WEBPACK_IMPORTED_MODULE_5__["default"], null));
-=======
+
 var App = function App(_ref) {
   var view = _ref.view;
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, displayView(view));
->>>>>>> fe8f5793a7d9219da9ec4f06576ac674079f0578
 };
 
 var displayView = function displayView(view) {
@@ -222,7 +149,7 @@ var displayView = function displayView(view) {
   } else if (view === 'questions') {
     return 'questions';
   } else if (view === 'verdict') {
-    return 'verdict';
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Verdict__WEBPACK_IMPORTED_MODULE_3__["default"], null);
   }
 };
 
@@ -312,7 +239,42 @@ function (_React$Component) {
       });
     });
 
-<<<<<<< HEAD
+    _defineProperty(_assertThisInitialized(_this), "handleSubmit", function (e) {
+      e.preventDefault();
+
+      _this.talk(); // this.props.dispatch(setName(this.state.name))
+      // this.props.dispatch(setView('questions'))
+
+    });
+
+    return _this;
+  }
+
+  _createClass(Login, [{
+    key: "render",
+    value: function render() {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "loginForm"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Are you worthy of SIRI ???"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Try Your Luck!"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+        onSubmit: this.handleSubmit
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "text",
+        placeholder: "enter name",
+        onChange: this.handleInput,
+        value: this.state.name
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        type: "submit"
+      }, "submit")));
+    }
+  }]);
+
+  return Login;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])()(Login));
+
+/***/ }),
+
 /***/ "./client/components/Verdict.jsx":
 /*!***************************************!*\
   !*** ./client/components/Verdict.jsx ***!
@@ -325,6 +287,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _actions_index__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../actions/index */ "./client/actions/index.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -344,6 +307,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 
 
@@ -376,6 +340,10 @@ function (_React$Component) {
       }
     });
 
+    _defineProperty(_assertThisInitialized(_this), "handleClick", function (e) {
+      _this.props.dispatch(Object(_actions_index__WEBPACK_IMPORTED_MODULE_2__["setView"])('login'));
+    });
+
     return _this;
   }
 
@@ -385,7 +353,9 @@ function (_React$Component) {
       console.log(this.props);
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "VerdictMessage"
-      }, "Tamari, are you good enough to date Siri?"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Your score is ", this.props.score), this.response(this.props.score));
+      }, "Tamari, are you good enough to date Siri?"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Your score is ", this.props.score), this.response(this.props.score), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        onClick: this.handleClick
+      }, "Get Another Chance At Love"));
     }
   }]);
 
@@ -398,53 +368,7 @@ var mapStateToProps = function mapStateToProps(state) {
   };
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(mapStateToProps)(Verdict)); // heading
-// pull score in
-// pull message in
-
-/***/ }),
-
-/***/ "./client/components/WaitIndicator.jsx":
-/*!*********************************************!*\
-  !*** ./client/components/WaitIndicator.jsx ***!
-  \*********************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-=======
-    _defineProperty(_assertThisInitialized(_this), "handleSubmit", function (e) {
-      e.preventDefault();
->>>>>>> fe8f5793a7d9219da9ec4f06576ac674079f0578
-
-      _this.talk(); // this.props.dispatch(setName(this.state.name))
-      // this.props.dispatch(setView('questions'))
-
-    });
-
-    return _this;
-  }
-
-  _createClass(Login, [{
-    key: "render",
-    value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "loginForm"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Are you worthy of SIRI ???"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Try Your Luck!"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
-        onSubmit: this.handleSubmit
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        type: "text",
-        placeholder: "enter name",
-        onChange: this.handleInput,
-        value: this.state.name
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        type: "submit"
-      }, "submit")));
-    }
-  }]);
-
-  return Login;
-}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
-
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])()(Login));
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(mapStateToProps)(Verdict));
 
 /***/ }),
 
@@ -493,42 +417,21 @@ document.addEventListener('DOMContentLoaded', function () {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
-<<<<<<< HEAD
 /* harmony import */ var _verdict__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./verdict */ "./client/reducers/verdict.js");
-
-
-/* harmony default export */ __webpack_exports__["default"] = (Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])({
-  verdict: _verdict__WEBPACK_IMPORTED_MODULE_1__["default"]
-=======
-/* harmony import */ var _error_message__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./error-message */ "./client/reducers/error-message.js");
-/* harmony import */ var _subreddits__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./subreddits */ "./client/reducers/subreddits.js");
-/* harmony import */ var _waiting__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./waiting */ "./client/reducers/waiting.js");
-/* harmony import */ var _name__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./name */ "./client/reducers/name.js");
-/* harmony import */ var _view__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./view */ "./client/reducers/view.js");
-
-
+/* harmony import */ var _name__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./name */ "./client/reducers/name.js");
+/* harmony import */ var _view__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./view */ "./client/reducers/view.js");
 
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])({
-  errorMessage: _error_message__WEBPACK_IMPORTED_MODULE_1__["default"],
-  subreddits: _subreddits__WEBPACK_IMPORTED_MODULE_2__["default"],
-  waiting: _waiting__WEBPACK_IMPORTED_MODULE_3__["default"],
-  name: _name__WEBPACK_IMPORTED_MODULE_4__["default"],
-<<<<<<< HEAD
-  view: _view__WEBPACK_IMPORTED_MODULE_5__["default"]
-=======
-  view: _view__WEBPACK_IMPORTED_MODULE_6__["default"]
->>>>>>> fe8f5793a7d9219da9ec4f06576ac674079f0578
->>>>>>> c1bb566991c58e56e0d75de4437295183b221441
+  verdict: _verdict__WEBPACK_IMPORTED_MODULE_1__["default"],
+  name: _name__WEBPACK_IMPORTED_MODULE_2__["default"],
+  view: _view__WEBPACK_IMPORTED_MODULE_3__["default"]
 }));
 
 /***/ }),
 
-<<<<<<< HEAD
-/***/ "./client/reducers/verdict.js":
-=======
 /***/ "./client/reducers/name.js":
 /*!*********************************!*\
   !*** ./client/reducers/name.js ***!
@@ -559,67 +462,7 @@ var initialState = 'user undefined';
 
 /***/ }),
 
-/***/ "./client/reducers/subreddits.js":
-/*!***************************************!*\
-  !*** ./client/reducers/subreddits.js ***!
-  \***************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions */ "./client/actions/index.js");
-
-
-function subreddits() {
-  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
-  var action = arguments.length > 1 ? arguments[1] : undefined;
-
-  switch (action.type) {
-    case _actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_POSTS"]:
-      return action.posts;
-
-    default:
-      return state;
-  }
-}
-
-/* harmony default export */ __webpack_exports__["default"] = (subreddits);
-
-/***/ }),
-
-/***/ "./client/reducers/view.js":
-/*!*********************************!*\
-  !*** ./client/reducers/view.js ***!
-  \*********************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _actions_index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/index */ "./client/actions/index.js");
-
-var initialState = 'login';
-/* harmony default export */ __webpack_exports__["default"] = (function () {
-  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
-
-  var _ref = arguments.length > 1 ? arguments[1] : undefined,
-      type = _ref.type,
-      view = _ref.view;
-
-  switch (type) {
-    case _actions_index__WEBPACK_IMPORTED_MODULE_0__["SET_VIEW"]:
-      return view;
-
-    default:
-      return state;
-  }
-});
-
-/***/ }),
-
-/***/ "./client/reducers/waiting.js":
->>>>>>> fe8f5793a7d9219da9ec4f06576ac674079f0578
+/***/ "./client/reducers/verdict.js":
 /*!************************************!*\
   !*** ./client/reducers/verdict.js ***!
   \************************************/
@@ -649,6 +492,36 @@ var reducer = function reducer() {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (reducer);
+
+/***/ }),
+
+/***/ "./client/reducers/view.js":
+/*!*********************************!*\
+  !*** ./client/reducers/view.js ***!
+  \*********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _actions_index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/index */ "./client/actions/index.js");
+
+var initialState = 'verdict';
+/* harmony default export */ __webpack_exports__["default"] = (function () {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
+
+  var _ref = arguments.length > 1 ? arguments[1] : undefined,
+      type = _ref.type,
+      view = _ref.view;
+
+  switch (type) {
+    case _actions_index__WEBPACK_IMPORTED_MODULE_0__["SET_VIEW"]:
+      return view;
+
+    default:
+      return state;
+  }
+});
 
 /***/ }),
 

@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { setView } from '../actions/index'
 
 class Verdict extends React.Component {
 
@@ -12,7 +13,11 @@ class Verdict extends React.Component {
       return 'you aight'
     }
   }
-  
+
+  handleClick = (e) => {
+    this.props.dispatch(setView('login'))
+  }
+
   render () {
     console.log(this.props)
     return (
@@ -23,6 +28,7 @@ class Verdict extends React.Component {
         {
           this.response(this.props.score)
         }
+        <button onClick={this.handleClick}>Get Another Chance At Love</button>
       </>
     )
   }
@@ -35,7 +41,3 @@ const mapStateToProps = (state) => {
 }
 
 export default connect(mapStateToProps)(Verdict)
-
-// heading
-// pull score in
-// pull message in

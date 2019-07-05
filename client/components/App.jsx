@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 import Login from './Login'
+import Verdict from './Verdict'
 
 const App = ({ view }) => (
   <>
@@ -17,7 +18,7 @@ const displayView = view => {
   } else if (view === 'questions') {
     return 'questions'
   } else if (view === 'verdict') {
-    return 'verdict'
+    return <Verdict />
   }
 }
 
