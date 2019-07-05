@@ -1,0 +1,1 @@
+console.log(JSON.stringify(['On the first Date', 'Saturdays', 'Once a Month']))
