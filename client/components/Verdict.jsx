@@ -6,15 +6,34 @@ class Verdict extends React.Component {
 
   response = (score) => {
     if (score < 5) {
-      return 'ew, get away from me'
+      this.talk('ew, get away from me')
     } else if (score > 11) {
-      return 'i love you '
+      this.talk('i love you ') 
     } else {
-      return 'you aight'
+      this.talk('you aight ') 
     }
   }
 
+  talk = (message = 'hello keith') => {
+
+    const voices = window.speechSynthesis.getVoices()
+
+    // voices.map( voice => voice.name)
+    // console.log(voices)
+
+    // console.log('hello siri')
+    const speech = new SpeechSynthesisUtterance()
+    speech.text = message
+    speech.volume = 1
+    speech.rate = 1
+    speech.pitch = 2
+    // speech.voice = voices[3]
+
+    window.speechSynthesis.speak(speech)
+  }
+
   handleClick = (e) => {
+    
     this.props.dispatch(setView('login'))
     this.props.dispatch(resetState())
   }
@@ -37,7 +56,8 @@ class Verdict extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    score: state.score
+    score: state.score,
+    name: state.name
   }
 }
 

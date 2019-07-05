@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { getData, setScore } from '../actions/getData'
+import { setView } from '../actions'
 
 class Form extends React.Component {
 
@@ -17,6 +18,7 @@ class Form extends React.Component {
     const { one, two, three, four, five } = this.state
     const total = Number(one) + Number(two) + Number(three) + Number(four) + Number(five)
     this.props.dispatch(setScore(total))
+    this.props.dispatch(setView('verdict'))
   }
 
   componentDidMount() {
@@ -29,10 +31,42 @@ class Form extends React.Component {
     const name = target.name
     console.log(value)
 
+    if (name === 'one') {
+      this.talk('hmmm')
+    } else if (name === 'two') {
+      this.talk('oooh')
+    } else if ( name === 'three'){
+      this.talk('really?')
+    }else if ( name === 'three'){
+      this.talk('oh')
+    }else if ( name === 'four'){
+      this.talk('finally')
+    }else if ( name === 'five'){
+      this.talk('mmm yes')
+    }
+
 
     this.setState({
       [name]: value
     })
+  }
+
+  talk = (message = 'hello keith') => {
+
+    const voices = window.speechSynthesis.getVoices()
+
+    // voices.map( voice => voice.name)
+    // console.log(voices)
+
+    // console.log('hello siri')
+    const speech = new SpeechSynthesisUtterance()
+    speech.text = message
+    speech.volume = 1
+    speech.rate = 1
+    speech.pitch = 2
+    // speech.voice = voices[50]
+
+    window.speechSynthesis.speak(speech)
   }
 
   render() {
@@ -45,6 +79,7 @@ class Form extends React.Component {
               <div>
                 <h1>{question.questions}</h1>
                 <select onChange={this.handleInputChange} name={question.name}>
+                <option>Please select an option...</option>
                   {question.answers.map((answer, i) => {
                     return (
                       <option value={question.score[i]}>{answer}</option>
