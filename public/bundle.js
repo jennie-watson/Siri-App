@@ -90,53 +90,23 @@
 /*!*********************************!*\
   !*** ./client/actions/index.js ***!
   \*********************************/
-/*! exports provided: SHOW_ERROR, RECEIVE_POSTS, REQUEST_POSTS, requestPosts, receivePosts, showError, fetchPosts */
+/*! exports provided: GET_SCORE, getScore */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SHOW_ERROR", function() { return SHOW_ERROR; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_POSTS", function() { return RECEIVE_POSTS; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "REQUEST_POSTS", function() { return REQUEST_POSTS; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "requestPosts", function() { return requestPosts; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "receivePosts", function() { return receivePosts; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "showError", function() { return showError; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchPosts", function() { return fetchPosts; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GET_SCORE", function() { return GET_SCORE; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getScore", function() { return getScore; });
 /* harmony import */ var superagent__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! superagent */ "./node_modules/superagent/lib/client.js");
 /* harmony import */ var superagent__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(superagent__WEBPACK_IMPORTED_MODULE_0__);
 
-var SHOW_ERROR = 'SHOW_ERROR';
-var RECEIVE_POSTS = 'RECEIVE_POSTS';
-var REQUEST_POSTS = 'REQUEST_POSTS';
-var requestPosts = function requestPosts() {
+var GET_SCORE = 'GET_SCORE';
+var getScore = function getScore(score) {
   return {
-    type: REQUEST_POSTS
+    type: GET_SCORE,
+    score: score
   };
 };
-var receivePosts = function receivePosts(posts) {
-  return {
-    type: RECEIVE_POSTS,
-    posts: posts.map(function (post) {
-      return post.data;
-    })
-  };
-};
-var showError = function showError(errorMessage) {
-  return {
-    type: SHOW_ERROR,
-    errorMessage: errorMessage
-  };
-};
-function fetchPosts(subreddit) {
-  return function (dispatch) {
-    dispatch(requestPosts());
-    return superagent__WEBPACK_IMPORTED_MODULE_0___default.a.get("/api/v1/reddit/subreddit/".concat(subreddit)).then(function (res) {
-      dispatch(receivePosts(res.body));
-    })["catch"](function (err) {
-      dispatch(showError(err.message));
-    });
-  };
-}
 
 /***/ }),
 
@@ -155,6 +125,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _LoadSubreddit__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./LoadSubreddit */ "./client/components/LoadSubreddit.jsx");
 /* harmony import */ var _SubredditList__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./SubredditList */ "./client/components/SubredditList.jsx");
 /* harmony import */ var _WaitIndicator__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./WaitIndicator */ "./client/components/WaitIndicator.jsx");
+/* harmony import */ var _Verdict__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Verdict */ "./client/components/Verdict.jsx");
+
 
 
 
@@ -164,7 +136,7 @@ __webpack_require__.r(__webpack_exports__);
 var App = function App() {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "app"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ErrorMessage__WEBPACK_IMPORTED_MODULE_1__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_LoadSubreddit__WEBPACK_IMPORTED_MODULE_2__["default"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_WaitIndicator__WEBPACK_IMPORTED_MODULE_4__["default"], null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_SubredditList__WEBPACK_IMPORTED_MODULE_3__["default"], null));
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Verdict__WEBPACK_IMPORTED_MODULE_5__["default"], null));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (App);
@@ -292,6 +264,97 @@ var mapStateToProps = function mapStateToProps(state) {
 
 /***/ }),
 
+/***/ "./client/components/Verdict.jsx":
+/*!***************************************!*\
+  !*** ./client/components/Verdict.jsx ***!
+  \***************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+
+var Verdict =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(Verdict, _React$Component);
+
+  function Verdict() {
+    var _getPrototypeOf2;
+
+    var _this;
+
+    _classCallCheck(this, Verdict);
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(Verdict)).call.apply(_getPrototypeOf2, [this].concat(args)));
+
+    _defineProperty(_assertThisInitialized(_this), "response", function (score) {
+      if (score < 5) {
+        return 'ew, get away from me';
+      } else if (score > 11) {
+        return 'i love you ';
+      } else {
+        return 'you aight';
+      }
+    });
+
+    return _this;
+  }
+
+  _createClass(Verdict, [{
+    key: "render",
+    value: function render() {
+      console.log(this.props);
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "VerdictMessage"
+      }, "Tamari, are you good enough to date Siri?"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Your score is ", this.props.score), this.response(this.props.score));
+    }
+  }]);
+
+  return Verdict;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+
+var mapStateToProps = function mapStateToProps(state) {
+  return {
+    score: state.verdict
+  };
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(mapStateToProps)(Verdict)); // heading
+// pull score in
+// pull message in
+
+/***/ }),
+
 /***/ "./client/components/WaitIndicator.jsx":
 /*!*********************************************!*\
   !*** ./client/components/WaitIndicator.jsx ***!
@@ -359,35 +422,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
 /***/ }),
 
-/***/ "./client/reducers/error-message.js":
-/*!******************************************!*\
-  !*** ./client/reducers/error-message.js ***!
-  \******************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions */ "./client/actions/index.js");
-
-
-function errorMessage() {
-  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
-  var action = arguments.length > 1 ? arguments[1] : undefined;
-
-  switch (action.type) {
-    case _actions__WEBPACK_IMPORTED_MODULE_0__["SHOW_ERROR"]:
-      return action.errorMessage;
-
-    default:
-      return state;
-  }
-}
-
-/* harmony default export */ __webpack_exports__["default"] = (errorMessage);
-
-/***/ }),
-
 /***/ "./client/reducers/index.js":
 /*!**********************************!*\
   !*** ./client/reducers/index.js ***!
@@ -398,53 +432,18 @@ function errorMessage() {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
-/* harmony import */ var _error_message__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./error-message */ "./client/reducers/error-message.js");
-/* harmony import */ var _subreddits__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./subreddits */ "./client/reducers/subreddits.js");
-/* harmony import */ var _waiting__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./waiting */ "./client/reducers/waiting.js");
-
-
+/* harmony import */ var _verdict__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./verdict */ "./client/reducers/verdict.js");
 
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])({
-  errorMessage: _error_message__WEBPACK_IMPORTED_MODULE_1__["default"],
-  subreddits: _subreddits__WEBPACK_IMPORTED_MODULE_2__["default"],
-  waiting: _waiting__WEBPACK_IMPORTED_MODULE_3__["default"]
+  verdict: _verdict__WEBPACK_IMPORTED_MODULE_1__["default"]
 }));
 
 /***/ }),
 
-/***/ "./client/reducers/subreddits.js":
-/*!***************************************!*\
-  !*** ./client/reducers/subreddits.js ***!
-  \***************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions */ "./client/actions/index.js");
-
-
-function subreddits() {
-  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
-  var action = arguments.length > 1 ? arguments[1] : undefined;
-
-  switch (action.type) {
-    case _actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_POSTS"]:
-      return action.posts;
-
-    default:
-      return state;
-  }
-}
-
-/* harmony default export */ __webpack_exports__["default"] = (subreddits);
-
-/***/ }),
-
-/***/ "./client/reducers/waiting.js":
+/***/ "./client/reducers/verdict.js":
 /*!************************************!*\
-  !*** ./client/reducers/waiting.js ***!
+  !*** ./client/reducers/verdict.js ***!
   \************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -453,27 +452,25 @@ function subreddits() {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions */ "./client/actions/index.js");
 
+var initialState = 13;
 
-var waiting = function waiting() {
-  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
-  var action = arguments.length > 1 ? arguments[1] : undefined;
+var reducer = function reducer() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
 
-  switch (action.type) {
-    case _actions__WEBPACK_IMPORTED_MODULE_0__["REQUEST_POSTS"]:
-      return true;
+  var _ref = arguments.length > 1 ? arguments[1] : undefined,
+      type = _ref.type,
+      score = _ref.score;
 
-    case _actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_POSTS"]:
-      return false;
-
-    case _actions__WEBPACK_IMPORTED_MODULE_0__["SHOW_ERROR"]:
-      return false;
+  switch (type) {
+    case _actions__WEBPACK_IMPORTED_MODULE_0__["GET_SCORE"]:
+      return score;
 
     default:
       return state;
   }
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (waiting);
+/* harmony default export */ __webpack_exports__["default"] = (reducer);
 
 /***/ }),
 

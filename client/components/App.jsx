@@ -5,13 +5,11 @@ import LoadSubreddit from './LoadSubreddit'
 import SubredditList from './SubredditList'
 import WaitIndicator from './WaitIndicator'
 
+import Verdict from './Verdict'
+
 const App = () => (
   <div className='app'>
-    <ErrorMessage />
-    <LoadSubreddit>
-      <WaitIndicator />
-    </LoadSubreddit>
-    <SubredditList />
+    <Verdict/>
   </div>
 )
 
